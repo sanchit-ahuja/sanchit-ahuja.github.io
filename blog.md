@@ -4,7 +4,7 @@ title: Blog
 permalink: /blog/
 ---
 
-Well, you know how difficult it is to maintain a blog right? The new post is always a work in progress :p
+Well, you know how difficult it is to maintain a blog right? The new post is always a work in progress.
 
 <!-- <ul class="listing">
 {% for post in site.posts %}
