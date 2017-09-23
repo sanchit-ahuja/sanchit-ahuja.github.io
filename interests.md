@@ -1,7 +1,5 @@
 ---
 layout: page
 title: Interests
-permalink: /misc/
+permalink: /interests/
 ---
-
-
