@@ -4,10 +4,8 @@ title: CV
 permalink: /cv/
 ---
 
-Still updating my CV. Will be posted soon. Until then please have a look at my [LinkedIn]{:target="_blank"} profile
-<!-- Download [PDF version](http://nitens.org/img/cvtex/cv_template_xetex_caslon.pdf). The PDF should be embedded underneath \-\- uses Google Docs for embedding and  --> 
-<!-- works if the PDF is on dropbox. Works sporadically if PDF is elsewhere too. -->
-
-<!-- {% include embedpdf.html source="http://nitens.org/img/cvtex/cv_template_xetex_caslon.pdf" width=100 height=800 %} -->
-
-[LinkedIn]: https://www.linkedin.com/in/asaditya/
+Download [CV](https://www.dropbox.com/s/3hhqawhl2qnqbim/CV_Aditya.pdf){:target="_blank"}
+<iframe src="https://drive.google.com/file/d/0B9FC-UHNNCpZUGlQZ0cyTWNCU1U/preview" width="800" height="1200" align="center"></iframe>
+<!-- {% include embedpdf.html source="https://www.dropbox.com/s/3hhqawhl2qnqbim/CV_Aditya.pdf" width=100 height=800 %}
+ -->
+ [LinkedIn]: https://www.linkedin.com/in/asaditya/
