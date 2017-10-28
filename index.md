@@ -27,23 +27,19 @@ Github: [AdityaAS]{:target="_blank"}
 [AdityaAS]: https://github.com/AdityaAS/
 [adityaas]: https://www.linkedin.com/in/asaditya/
 
-<-- People I've worked with -->
 [Dr. Partha Talukdar]: http://talukdar.net/
 [Dr. Poonam Goyal]: http://www.bits-pilani.ac.in/pilani/poonam/profile
 [Dr. Jagdish Raheja]: http://www.ceeri.res.in/profiles/j-l-raheja/
 [Dr. Lavika Goel]: http://www.bits-pilani.ac.in/pilani/lavikagoel/profile
 
-<-- Labs I've been a part of -->
 [Machine and Language Learning (MALL) Lab]: http://malllabiisc.github.io/
 [Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]: http://www.bits-pilani.ac.in/pilani/computerscience/AdvancedDataAnalyticsParallelTechnologiesLaboratory/
 [Multimedia and HCI Lab]: http://www.bits-pilani.ac.in/PILANI/COMPUTERSCIENCE/MultimediaHCILaboratory
 
-<-- Institutes / Departments I've been a part of -->
 [Department of Computational and Data Sciences]: http://cds.iisc.ac.in/
 [Indian Institute of Science, Bangalore]: http://www.iisc.ac.in/
 [BITS Pilani]: http://www.bits-pilani.ac.in/
 
-<-- Open Source Stuff -->
 [Apache Mahout]: http://mahout.apache.org/
 [Mahout]: http://mahout.apache.org/
 [dev]: mailto:dev-subscribe@mahout.apache.org
