@@ -11,7 +11,6 @@ Hi! I'm Aditya. I'm currently a Project Assistant at the [Machine and Language L
 I am broadly interested in Machine Learning and Natural Language Processing.
 
 I also contribute to [Apache Mahout]{:target="_blank"} where I design distributed machine learning algorithms and implement them in Mahout Samsara.
-
 Previously, I was an undergraduate student in Computer Science at [BITS Pilani]{:target="_blank"} where I worked with [Dr. Poonam Goyal]{:target="_blank"} at the [Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]{:target="_blank"}, [Dr. Jagdish Raheja]{:target="_blank"} at the Machine Vision Lab in CSIR-CEERI, Pilani and [Dr. Lavika Goel]{:target="_blank"} at the [Multimedia and HCI Lab]{:target="_blank"}
 
 If you are interested in contributing to [Mahout], subscribe to the [dev] list and drop an email there

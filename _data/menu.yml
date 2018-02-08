@@ -1,14 +1,14 @@
-- title: "Projects"
-  href: "/projects/"
+- title: "Academics"
+  href: "/academics/"
 
 - title: "Experience"
   href: "/experience/"
 
+- title: "Research"
+  href: "/research/"
+
+- title: "Projects"
+  href: "/projects/"
+
 - title: "CV"
   href: "/cv/"
-
-# - title: "Interests"
-#   href: "/interests/"
-
-- title: "Blog"
-  href: "/blog/"

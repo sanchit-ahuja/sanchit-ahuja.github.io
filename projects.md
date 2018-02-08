@@ -4,18 +4,27 @@ title: Projects
 permalink: /projects/
 ---
 
-## [Food Sense](https://github.com/AdityaAS/FoodSense)
-Developed a hybrid optimization algorithm and applied the algorithm to make image segmentation efficient
-Our paper "Hybridization of Moth Flame Optimization and Gravitational Search Algorithm and its Application to detection of Food Quality" was accepted at the Intelligent Systems Conference (Intellisys) 2017, held in London, UK
+## Parallel Backtracking Framework (Spring 2016) - [Github]()
+(As a part of Parallel Computing course under Prof. S. Balasubramaniam)
+- Developed a framework to parallelize any generic backtracking algorithm (given the solver function, for sequential solving).
+- Demonstrated the performance of the framework on 2 problems, Sudoku Solving and Rat in a Maze. 
 
-## Parallel Backtracking Framework
-Developed a framework to parallelize any generic backtracking algorithm (given the solver function, for sequential solving). Demonstrated the performance of the framework on 2 problems, Sudoku Solving and Rat in a Maze. 
+## Compiler Design and Implementation (Spring 2016) - [Github](https://github.com/AdityaAS/CompilerConstruction)
+(As a part of Compiler Construction course under Dr. Vandana Agarwal)
+- Developed an entire compiler for a dummy programming language having constructs like structures and functions
+- Implemented various modules like lexical analyzer, parser, semantic analyzer, scope and type checker in C
+- The compiler finally gave an ASM output file which can be linked and run using any basic ASM tool like gcc
 
-## [Compiler](https://github.com/AdityaAS/CompilerConstruction)
-Developed a compiler for a toy language. Coded the lexer, parser and the intermediate code generator modules in C
+## Automated Question Answering System (Fall 2016) - [Github](https://github.com/AdityaAS/Question-Answering-System)
+(As a part of Artificial Intelligence course under Dr. Vandana Agarwal)
+- Developed a question answering system trained to answer What, Why, Where types of questions. Used Google API for fetching related documents and applied NLP techniques to assign scores and selected the top scoring entity as the final answer
 
-## [Automated Question Answering System](https://github.com/AdityaAS/Question-Answering-System)
-Developed a question answering system trained to answer What, Why, Where types of questions. Used Google API for fetching related documents and applied NLP techniques to assign scores and selected the top scoring entity as the final answer
+## Logic Programming in Prolog (Fall 2014)
+(As a part of Logic in Computer Science course under Prof. S. Balasubramaniam)
+- Codified a section of the US Constitution in Prolog
+- The system could handle multiple queries based on the knowledge base provided
 
-## Others
-Multiple small scale projects as part of coursework at BITS and for courses on Coursera
+## Mine Exploration Vehicle (Spring 2015)
+(As a part of Microprocessors & Interfacing course under G. Sai Sesha Chalapathi)
+- Designed a working simulation of a vehicle capable of digging, rotating and omni-directional motion based on Intel 8086 processor, in Proteus
+
