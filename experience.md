@@ -6,9 +6,8 @@ permalink: /experience/
 
 ## [Machine and Language Learning Lab, IISc]{:target="_blank"}, Research Assitant
 Mentor - Dr. Partha Talukdar
-
-- Design and Construction of Domain Specific Knowledge Graphs
-
+<!-- - Design and Construction of Domain Specific Knowledge Graphs
+ -->
 ## [Apache Software Foundation]{:target="_blank"}, Google Summer of Code
 Mentor - Mr. Trevor Grant
 
