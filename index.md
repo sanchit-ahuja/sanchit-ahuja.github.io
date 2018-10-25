@@ -24,11 +24,11 @@ Chakala, Andheri<br />
 Mumbai <br />
 
 Email: aditya at wadhwaniai dot org<br />
-LinkedIn: [adityaas]{:target="_blank"} <br />
+LinkedIn: [aditya]{:target="_blank"} <br />
 Github: [AdityaAS]{:target="_blank"}
 
 [AdityaAS]: https://github.com/AdityaAS/
-[adityaas]: https://www.linkedin.com/in/asaditya/
+[aditya]: https://www.linkedin.com/in/asaditya/
 
 [paper]: https://ieeexplore.ieee.org/document/8324318/
 [DBSCAN]: https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf
