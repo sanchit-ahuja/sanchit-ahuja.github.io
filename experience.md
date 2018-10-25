@@ -31,6 +31,7 @@ Mentor - Dr. Jagdish Lal Raheja
 - Continued the internship as a course project and developed classifier to classify activities in real time
 
 [Read this]: http://talukdar.net/papers/NELL_aaai15.pdf
+[Wadhwani Institute of Artificial Intelligence]: https://www.wadhwaniai.org
 [Boomerang Commerce]: https://www.boomerangcommerce.com/
 [Machine and Language Learning Lab, IISc]: https://malllabiisc.github.io/
 [Apache Software Foundation]: https://www.apache.org/
