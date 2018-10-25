@@ -6,6 +6,7 @@ permalink: /research/
 
 ## Parallel Clustering Algorithms for Big Data 
 Advisor: Dr. Poonam Goyal
+* Designed and developed a parallel spatial clustering algorithm that scales to a billion data points. Benchmarked the algorithm on various million/billion sized datasets and achieved 100x speedup
 
 ## Speeding up Image Segmentation Algorithms - [Github](https://github.com/AdityaAS/FoodSense)
 Advisor: Dr. Lavika Goel
