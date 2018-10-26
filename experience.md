@@ -13,7 +13,7 @@ Mentor - Dr. Partha Talukdar
 - Developed a domain specific crawler to fetch only documents relevant to a domain (built a classifier to that end) and deployed the crawler at scale (think 100k documents per day). Also involved in constructing a knowledge graph using the fetched documents [Read this]{:target="_blank"}
 - Worked on jointly learning representations for knowlege graphs and text for entity linking and link prediction (knowledge graph completion)
 
-## [Apache Software Foundation]{:target="_blank"}, Google Summer of Code
+## [Apache Software Foundation]{:target="_blank"}, Google Summer of Code '17
 Mentor - Mr. Trevor Grant
 
 - Contributed the DBSCAN algorithm to the clustering submodule in Apache Mahout
@@ -23,6 +23,7 @@ Mentor - Mr. Satish Thakur
 
 - Built an automated employee account management platform to manage all employee accounts
 - Built a dashboard to create, update, delete and manage employee accounts and respective access permissions
+- Wrote unit tests and pushed the platform to production
 
 ## [Machine Vision Lab]{:target="_blank"}, Research Intern
 Mentor - Dr. Jagdish Lal Raheja
