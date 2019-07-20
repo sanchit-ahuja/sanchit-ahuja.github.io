@@ -14,7 +14,7 @@ Until about a few months ago, I was a research assistant at the [Machine and Lan
 
 I (briefly) contributed to [Apache Mahout]{:target="_blank"} as part of the Google Summer of Code '17 where I worked on the design and implementation of distributed [DBSCAN]{:target="_blank"}
 
-In a previous life, I was an undergraduate student in Computer Science at [BITS Pilani]{:target="_blank"} where I worked with [Dr. Poonam Goyal]{:target="_blank"} at the [Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]{:target="_blank"} on building large scale distributed algorithms for clustering (think billions of data points), [Dr. Jagdish Raheja]{:target="_blank"} at the Machine Vision Lab in CSIR-CEERI, Pilani on fall detection in elderly people and [Dr. Lavika Goel]{:target="_blank"} at the [Multimedia and HCI Lab]{:target="_blank"} on nature inspired swarm optimization algorithms [[paper]{:target="_blank"}]
+In a previous life, I was an undergraduate student in Computer Science at [BITS Pilani]{:target="_blank"} where I worked with [Dr. Poonam Goyal]{:target="_blank"} at the [Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]{:target="_blank"} on building large scale distributed algorithms for clustering (think billions of data points), [Dr. Jagdish Raheja]{:target="_blank"} at the Machine Vision Lab in CSIR-CEERI, Pilani on fall detection in elderly people and [Dr. Lavika Goel]{:target="_blank"} at the [Multimedia and HCI Lab]{:target="_blank"} on nature inspired swarm optimization algorithms.
 
 ## Contact
 Wadhwani Institute of Artificial Intelligence <br />
@@ -30,7 +30,6 @@ Github: [AdityaAS]{:target="_blank"}
 [AdityaAS]: https://github.com/AdityaAS/
 [aditya]: https://www.linkedin.com/in/asaditya/
 
-[paper]: https://ieeexplore.ieee.org/document/8324318/
 [DBSCAN]: https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf
 [Dr. Partha Talukdar]: http://talukdar.net/
 [Dr. Poonam Goyal]: http://www.bits-pilani.ac.in/pilani/poonam/profile
