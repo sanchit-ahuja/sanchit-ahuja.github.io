@@ -16,7 +16,7 @@ Advisor: [Dr. Lavika Goel]{:target="_blank"}
 * Our paper "[Hybridization of Moth Flame Optimization and Gravitational Search Algorithm and its Application to detection of Food Quality](https://ieeexplore.ieee.org/document/8324318/)" was accepted at the Intelligent Systems Conference (Intellisys) 2017, held in London, UK
 
 ## Activity Recognition using Cameras, Sensors and Kinect 
-Advisor: [Dr. Jagdish Lal Raheja]{:target="_blank"}
+Advisor: [Dr. Jagdish Raheja]{:target="_blank"}
 * Developed vision based models for Activity Recognition identifying 6 basic activities (Standing, Sitting, Walking, Lying, Bending, Falling) with emphasis on Fall
 
 [Dr. Poonam Goyal]: http://www.bits-pilani.ac.in/pilani/poonam/profile
