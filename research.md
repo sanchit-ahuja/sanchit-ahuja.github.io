@@ -8,7 +8,7 @@ permalink: /research/
 Advisor: Dr. Poonam Goyal
 * As part of my undergraduate thesis, Designed and developed a parallel spatial clustering algorithm that scales to a billion data points. Benchmarked the algorithm on various million/billion sized datasets and achieved 100x speedup
 * You can find the thesis [here](https://drive.google.com/file/d/1nnR1hs9cqiM0P2eUTIG9iOIPRGjo1azR/view?usp=sharing)
-* Our paper `\mu`DBSCAN: An Exact Scalable DBSCAN Algorithm for Big Data Exploiting Spatial Locality got accepted for publication at [IEEE Cluster 2019](https://clustercomp.org/2019/) in the Algorithms Track. (pdf will be made available soon!)
+* Our paper "[`\mu`DBSCAN: An Exact Scalable DBSCAN Algorithm for Big Data Exploiting Spatial Locality](https://drive.google.com/file/d/1vlDkzGR9IZl68RrN3ooSQJnpNXFbEoUi/view?usp=sharing)" has been accepted as a full research paper at [IEEE Cluster 2019](https://clustercomp.org/2019/) in the Algorithms Track.
 
 ## Speeding up Image Segmentation Algorithms - [Github](https://github.com/AdityaAS/FoodSense)
 Advisor: Dr. Lavika Goel
