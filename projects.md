@@ -7,6 +7,7 @@ permalink: /projects/
 ## Implementation of Groups based DBSCAN (Spring 2017) - [Github](https://github.com/AdityaAS/GroupDBSCAN)
 (Independent Project)
 - Implemented and replicated the paper: [A fast DBSCAN clustering algorithm by accelerating neighbor searching using Groups method](https://dl.acm.org/citation.cfm?id=2952211)
+- Optimized the algorithm described in the paper using an RTree data structure to reduce complexity from O(n^2) to O(n\*log(n)) - [Github](https://github.com/AdityaAS/GroupRTree)
 
 ## Parallel Backtracking Framework (Spring 2016) - [Github]()
 (As a part of Parallel Computing course under Prof. S. Balasubramaniam)
