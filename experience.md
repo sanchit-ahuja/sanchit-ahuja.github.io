@@ -6,39 +6,34 @@ permalink: /experience/
 
 ## [Wadhwani Institute of Artificial Intelligence]{:target="_blank"}, Research Fellow
 
-- I work on algorithms for 3d reconstruction from single image / video with the end goal of estimating [anthropometric measurements of neonates]{:target="_blank"}
-- I own the entire data annotation pipeline with the goals of creating useful annotations for images of neonates collected in hospitals.
-- My team is one of 34 teams (and the only one from developing countries) that have qualified to the [$5M IBM AI XPrize]{:target="_blank"}
-- Founder and convener of the weekly reading group series where we discuss latest research in Artificial Intelligence 
 
 ## [Machine and Language Learning Lab, IISc]{:target="_blank"}, Research Assitant
-Mentor - Dr. Partha Talukdar
+Advisor - Dr. Partha Talukdar
 
-- Built a domain specific data acquisition platform involving components such as a crawler, classifier, expander to create a domain specific corpus from the web given limited amounts of training data. Developed a knowledge graph based Positive Unlabeled (PU) classifier in the process. [Used Sparkler, Apache Solr, Apache Kafka, Docker, Kubernetes]
-- Developed algorithms to jointly learn embeddings from knowledge graphs and text in a multi task setting so as to improve performance on a variety of tasks (link prediction, entity linking, relation extraction)
-
+- Developed a knowledge graph (KG) based Positive Unlabeled (PU) classifier (KG-PU classifier) to create a domain specific corpus from the web given a seed set. 
+- Beat OCSVM, PUSVM, SVM (treating all non class data as negative data) algorithms (as measured by F1 score) on [NYT dataset]{:target="_blank"} and real data in the scarce data regime of 50 - 500 documents. 
+- Built a fully distributed crawler in the process with capacity to crawl over 100k documents in a week. Plugged the above developed classifier into the crawler to filter documents during the crawl
 
 ## [Apache Software Foundation]{:target="_blank"}, Google Summer of Code '17
-Mentor - Mr. Trevor Grant
+Advisor - Mr. Trevor Grant
 
 - Contributed the DBSCAN algorithm to the clustering submodule in Apache Mahout
 
 ## [Boomerang Commerce]{:target="_blank"}, Software Engineering Intern
-Mentor - Mr. Satish Thakur
+Advisor - Mr. Satish Thakur
 
 - Built an automated employee account management platform to manage all employee accounts
 - Built a dashboard to create, update, delete and manage employee accounts and respective access permissions
 - Wrote unit tests and pushed the platform to production
 
 ## [Machine Vision Lab]{:target="_blank"}, Research Intern
-Mentor - Dr. Jagdish Lal Raheja
+Advisor - Dr. Jagdish Lal Raheja
 - Developed a system to collect real time data from sensors, camera and Kinect as part of developing an activity recognition system
 - Continued the internship as a course project and developed classifier to classify activities in real time
 
-[Read this]: http://talukdar.net/papers/NELL_aaai15.pdf
 [Wadhwani Institute of Artificial Intelligence]: https://www.wadhwaniai.org
 [Wadhwani AI]: https://www.wadhwaniai.org
-
+[NYT dataset]: https://catalog.ldc.upenn.edu/LDC2008T19
 [Boomerang Commerce]: https://www.boomerangcommerce.com/
 [Machine and Language Learning Lab, IISc]: https://malllabiisc.github.io/
 [Apache Software Foundation]: https://www.apache.org/

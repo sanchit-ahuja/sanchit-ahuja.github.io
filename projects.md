@@ -3,6 +3,8 @@ layout: page
 title: Projects
 permalink: /projects/
 ---
+## Domain Adaptation for Singleview 3D Reconstruction
+
 
 ## Implementation of Groups based DBSCAN (Spring 2017) - [Github](https://github.com/AdityaAS/GroupDBSCAN)
 (Independent Project)
@@ -28,8 +30,3 @@ permalink: /projects/
 (As a part of Logic in Computer Science course under Prof. S. Balasubramaniam)
 - Codified a section of the US Constitution in Prolog
 - The system could handle multiple queries based on the knowledge base provided
-
-## Mine Exploration Vehicle (Spring 2015)
-(As a part of Microprocessors & Interfacing course under G. Sai Sesha Chalapathi)
-- Designed a working simulation of a vehicle capable of digging, rotating and omni-directional motion based on Intel 8086 processor, in Proteus
-

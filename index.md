@@ -6,15 +6,15 @@ permalink: /
 
 {% include image.html url="images/photo.jpg" caption="" max_width="300px" align="right" %}
 
-Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute of Artificial Intelligence]{:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good.
+Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute of Artificial Intelligence]{:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good. We're building a video based anthropometry tool to using parametric neonate models to effectively catch many of the millions of low birth weight babies that are missed each year. 
 
-I am broadly interested in Machine Learning. Specifically, interpretability of deep networks [[Read this!]{:target="_blank"}] and generative models interest me. 
+I am broadly interested in Machine Learning and Computer  Vision
 
-Previously, I was a research assistant at the [Machine and Language Learning (MALL) Lab]{:target="_blank"}, IISc Bangalore where I worked on constructing domain specific knowledge graphs and learning joint representations from knowledge graphs and text
+Previously, I was a research assistant at the [Machine and Language Learning (MALL) Lab]{:target="_blank"}, IISc Bangalore where I worked on positive unlabeled classification algorithms to fetch documents from the web that resemble a seed set (often very small, 500 documents). I helped build a distributed crawler, a PU classifier and relation extraction algorithms to construct domain specific knowledge graphs from a web corpus. A system similar to [NELL]{:target="_blank"} but restricted to a specific domain
 
 I contributed to [Apache Mahout]{:target="_blank"} as part of the Google Summer of Code '17 where I worked on the design and implementation of distributed [DBSCAN]{:target="_blank"}
 
-In a previous life, I was an undergraduate student in Computer Science at [BITS Pilani]{:target="_blank"} where I worked with [Dr. Poonam Goyal]{:target="_blank"} at the [Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]{:target="_blank"} on building large scale distributed algorithms for clustering (billions of data points in an hour) - Our work has been accepted as a full research paper in the Algorithms track of the IEEE Cluster Computing Conference, Albequerque, New Mexico USA. 
+I graduated with Honours. in Computer Science from [BITS Pilani]{:target="_blank"} where I worked with [Dr. Poonam Goyal]{:target="_blank"} at the [Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]{:target="_blank"} on building large scale distributed algorithms for clustering (1 billion data points in 41 minutes using a mere 32 nodes) - The work I did for my undergraduate thesis has been accepted as a full research paper in the Algorithms track of the IEEE Cluster Computing Conference
 
 I also worked with [Dr. Jagdish Raheja]{:target="_blank"} at the Machine Vision Lab in CSIR-CEERI, Pilani on fall detection in elderly people and [Dr. Lavika Goel]{:target="_blank"} at the [Multimedia and HCI Lab]{:target="_blank"} on nature inspired swarm optimization algorithms.
 
@@ -40,14 +40,11 @@ Github: [AdityaAS]{:target="_blank"}
 
 [Wadhwani Institute of Artificial Intelligence]: https://wadhwaniai.org
 [Machine and Language Learning (MALL) Lab]: http://malllabiisc.github.io/
-[Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]: http://www.bits-pilani.ac.in/pilani/computerscience/AdvancedDataAnalyticsParallelTechnologiesLaboratory/
+[Advanced Data Analytics and Parallel Technologies (ADAPT) Lab]: http://www.bits-pilani.ac.in/pilani/computerscience/
 [Multimedia and HCI Lab]: http://www.bits-pilani.ac.in/PILANI/COMPUTERSCIENCE/MultimediaHCILaboratory
 
-[Read this!]: https://arxiv.org/abs/1602.04938
-
-[Department of Computational and Data Sciences]: http://cds.iisc.ac.in/
+[NELL]: http://rtw.ml.cmu.edu/rtw/
 [Indian Institute of Science, Bangalore]: http://www.iisc.ac.in/
 [BITS Pilani]: http://www.bits-pilani.ac.in/
 
 [Apache Mahout]: http://mahout.apache.org/
-[Mahout]: http://mahout.apache.org/

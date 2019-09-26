@@ -7,7 +7,6 @@ permalink: /academics/
 ## Education
 #### Birla Institute of Technology and Science (BITS) Pilani, Pilani, Rajasthan
 Bachelor of Engineering (Hons.) in Computer Science (2013-2017)
-- Major GPA: 8.5/10
 
 ## Teaching Experience
 #### Teaching Assistant for Data Mining (Fall 2017, Spring 2017)
@@ -48,3 +47,10 @@ Bachelor of Engineering (Hons.) in Computer Science (2013-2017)
 - Computer Networks
 - Design & Analysis of Algorithms
 - Compiler Construction
+
+#### Online Courses
+- Advanced Linear Algebra
+- Statistical Machine Learning
+- Deep Learning
+
+
