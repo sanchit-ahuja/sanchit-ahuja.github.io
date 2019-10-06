@@ -6,7 +6,7 @@ permalink: /
 
 {% include image.html url="images/photo.jpg" caption="" max_width="300px" align="right" %}
 
-Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute of Artificial Intelligence]{:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good. We're building a video based anthropometry tool to using parametric neonate models to effectively catch many of the millions of low birth weight babies that are missed each year. 
+Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute of Artificial Intelligence]{:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good. We're building a video based anthropometry tool using parametric neonate models to effectively catch many of the millions of low birth weight babies that are missed each year. 
 
 I am broadly interested in Machine Learning and Computer  Vision
 
