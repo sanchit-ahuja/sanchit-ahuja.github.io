@@ -19,7 +19,7 @@ I graduated with Honours. in Computer Science from [BITS Pilani]{:target="_blank
 I also worked with [Dr. Jagdish Raheja]{:target="_blank"} at the Machine Vision Lab in CSIR-CEERI, Pilani on fall detection in elderly people and [Dr. Lavika Goel]{:target="_blank"} at the [Multimedia and HCI Lab]{:target="_blank"} on nature inspired swarm optimization algorithms.
 
 ## Contact
-Wadhwani Institute of Artificial Intelligence <br />
+Wadhwani Institute for Artificial Intelligence <br />
 7th floor, Building 11 <br />
 Solitaire Corporate Park <br />
 Chakala, Andheri<br />
