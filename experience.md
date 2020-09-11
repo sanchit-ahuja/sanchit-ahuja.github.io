@@ -5,13 +5,14 @@ permalink: /experience/
 ---
 
 ## [Wadhwani Institute of Artificial Intelligence]{:target="_blank"}, Research Fellow
+Advisors: Dr. Rahul Panicker, Dr. P. Anandan
 
 
 ## [Machine and Language Learning Lab, IISc]{:target="_blank"}, Research Assitant
 Advisor - Dr. Partha Talukdar
 
-- Developed a knowledge graph (KG) based Positive Unlabeled (PU) classifier (KG-PU classifier) to create a domain specific corpus from the web given a seed set. 
-- Beat OCSVM, PUSVM, SVM (treating all non class data as negative data) algorithms (as measured by F1 score) on [NYT dataset]{:target="_blank"} and real data in the scarce data regime of 50 - 500 documents. 
+- Developed a knowledge graph (KG) based Positive Unlabeled (PU) classifier (KG-PU classifier) to create a domain specific corpus from the web given a seed set.
+- Beat OCSVM, PUSVM, SVM (treating all non class data as negative data) algorithms (as measured by F1 score) on [NYT dataset]{:target="_blank"} and real data in the scarce data regime of 50 - 500 documents.
 - Built a fully distributed crawler in the process with capacity to crawl over 100k documents in a week. Plugged the above developed classifier into the crawler to filter documents during the crawl
 
 ## [Apache Software Foundation]{:target="_blank"}, Google Summer of Code '17
