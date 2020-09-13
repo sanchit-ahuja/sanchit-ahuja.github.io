@@ -23,7 +23,7 @@ Bachelor of Engineering (Hons.) in Computer Science (2013-2017)
 - Mathematics II - Linear Algebra
 - Mathematics III - Differential Equations
 - Probability & Statistics
- 
+
 #### Discipline Electives
 - Parallel Computing
 - Data Mining
