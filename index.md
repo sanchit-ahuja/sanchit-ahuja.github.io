@@ -9,7 +9,7 @@ permalink: /
 Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute for Artificial Intelligence](https://wadhwaniai.org){:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good. I am one of the founding members of the video based anthropometry tool where we're developing state of the art 3D reconstruction techniques to help identify the 10 million low birth weight babies missed by the health system each year around the globe.
 I am interested in Artificial Intelligence and it's applications to widespread problems.
 
-By virtue of my 3 year industry experience, I have developed a wide range of skills to support my research in large scale ML including 3D vision, system design, natural language processing, distributed computing, software engineering, leading and mentoring research projects.
+By virtue of my 3 year industry experience, I have developed a wide range of skills to support my research in large scale ML including 3D vision, system design, natural language processing, distributed computing, software engineering, formulating and leading research projects.
 
 
 ---
