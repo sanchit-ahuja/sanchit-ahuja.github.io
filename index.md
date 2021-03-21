@@ -21,6 +21,7 @@ I graduated with Honours. in Computer Science from [BITS Pilani](http://www.bits
 
 ## News & Activities
 ---
+- **Mar 2021** - Mentor and PC member for the [AI for Public Health Workshop](https://aiforpublichealth.github.io/){:target="_blank"} at ICLR 2021
 - **Sep 2020** - Authored a document for researchers/Ph.D. students to follow while working on deep learning projects that'll add almost 2-3x speedup in iteratioins. [Link](https://docs.google.com/document/d/1ckW0kn4_yxxRhxWeR-HS9JM-IoefzjB0op5Rz65rFnI/edit?usp=sharing){:target="_blank"}
 - **Feb 2020** - Attended the 34th AAAI Conference on Artificial Intelligence, New York
 - **Jan 2020** - Invited talk at Alumni Research Talks (ART), BITS Pilani
