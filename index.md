@@ -6,10 +6,12 @@ permalink: /
 
 {% include image.html url="images/photo.png" caption="" max_width="300px" align="left" %}
 
-Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute for Artificial Intelligence](https://wadhwaniai.org){:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good. I am one of the founding members of the video based anthropometry tool where we're developing state of the art 3D reconstruction techniques to help identify the 10 million low birth weight babies missed by the health system each year around the globe.
-I am interested in Artificial Intelligence and it's applications to widespread problems.
+Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute for Artificial Intelligence](https://wadhwaniai.org){:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good. I am one of the founding members of the visual weighing machine team where we're developing state of the art deep learning techniques to help identify the 10 million low birth weight babies missed by the health system each year around the globe. At Wadhwani AI, with research as my core expertise, I also dabble in engineering (built our data ingestion and annotation pipelines) and as an overall lead on different substreams of our project (data, annotation, modelling)
 
-By virtue of my 3 year industry experience, I have developed a wide range of skills to support my research in large scale ML including 3D vision, system design, natural language processing, distributed computing, software engineering, formulating and leading research projects.
+My industry experience has enabled me to acquire the following skills
+1. Applied AI research (Problem identification, formulation and execution majorly in 3D Computer Vision and Deep Learning)
+2. Software Development (Building data and annotation pipelines, frameworks to train deep networks with ease)
+3. Leadership skills (I was the lead our data collection, processing and annotation efforts from research involving engineers, research scientists and product managers). Received professional leadership training to augment my leadership toolkit in the process.
 
 
 ---
@@ -21,26 +23,26 @@ I graduated with Honours. in Computer Science from [BITS Pilani](http://www.bits
 
 ## News & Activities
 ---
-- **Sep 2020** - Authored a document for researchers/Ph.D. students to follow while working on deep learning projects that'll add almost 2-3x speedup in iteratioins. [Link](https://docs.google.com/document/d/1ckW0kn4_yxxRhxWeR-HS9JM-IoefzjB0op5Rz65rFnI/edit?usp=sharing){:target="_blank"}
+- **May 2021** - Visual Weighing Machine wins the [Best World Changing Idea - APAC](https://www.fastcompany.com/90626533/this-ai-powered-tech-calculates-a-babys-weight-just-from-a-video){:target="_blank"} at Fast Company's annual competition
+- **Apr 2021** - Accepted to the graduate programs at Georgia Institute of Technology and Courant Institute, New York University
+- **Sep 2020** - Authored a document for researchers/Ph.D. students to follow while working on deep learning projects that'll add almost 2-3x speedup in iteratioins. [Link to doc](https://docs.google.com/document/d/1ckW0kn4_yxxRhxWeR-HS9JM-IoefzjB0op5Rz65rFnI/edit?usp=sharing){:target="_blank"}
 - **Feb 2020** - Attended the 34th AAAI Conference on Artificial Intelligence, New York
 - **Jan 2020** - Invited talk at Alumni Research Talks (ART), BITS Pilani
+- **Dec 2019** - Visual Weighing Machine wins a $5M grant from the Bill and Melinda Gates Foundation and a $300K grant from Botnar Foundation
 - **Nov 2019** - Research collaboration w/ Max Planck Institute for Intelligent Systems. Invited talk on our work at the Perceiving Systems Department
 - **Oct 2019** - Member of a team selected for the $5M AI XPrize Global Challenge (1 of 32 teams, and the only from from the developing world)
-- **Mar 2019** - My undergraduate thesis on distributed spatial clustering algorithms gets accepted to the IEEE Conference on Cluster Computing 2019
+- **Mar 2019** - My undergraduate thesis on [distributed spatial clustering algorithms](https://ieeexplore.ieee.org/document/8891020){:target="_blank"} gets accepted to the IEEE Conference on Cluster Computing 2019
 - **Aug 2018** - Joined Wadhwani AI, an AI for social good non-profit with a vision to take the benefits of AI to the next 5 billion
 - **Mar 2018** - Presentation at DRDO about our work on constructing domain specific knowledge bases (similar to NELL)
 - **Aug 2017** - Joined Indian Institute of Science as a research assistant at the Machine and Language Learning Lab, rejecting offers from Walmart and Microsoft Research
-- **Jan 2017** - Submitted a patent application for our work on fall detection using computer vision techniques
+- **Jan 2017** - Submitted a patent application for our work on fall detection in the elderly using computer vision techniques
 
 ## Contact
 ---
-Wadhwani Institute for Artificial Intelligence <br />
-7th floor, Building 11 <br />
-Solitaire Corporate Park <br />
-Chakala, Andheri<br />
-Mumbai <br />
 
-Email: aditya at wadhwaniai dot org<br />
+Email: aditya at wadhwaniai dot org <br />
 LinkedIn: [aditya](https://www.linkedin.com/in/asaditya/){:target="_blank"} <br />
-Github: [AdityaAS](https://github.com/AdityaAS/){:target="_blank"}
+Github: [AdityaAS](https://github.com/AdityaAS/){:target="_blank"} <br />
+Twitter: [thisisadityaas](https://twitter.com/thisisadityaas){:target="_blank"}
+
 
