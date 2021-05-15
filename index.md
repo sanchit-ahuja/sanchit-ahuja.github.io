@@ -34,7 +34,6 @@ I graduated with Honours. in Computer Science from [BITS Pilani](http://www.bits
 - **Oct 2019** - Member of a team selected for the $5M AI XPrize Global Challenge (1 of 32 teams, and the only from from the developing world)
 - **Mar 2019** - My undergraduate thesis on [distributed spatial clustering algorithms](https://ieeexplore.ieee.org/document/8891020){:target="_blank"} gets accepted to the IEEE Conference on Cluster Computing 2019
 - **Aug 2018** - Joined Wadhwani AI, an AI for social good non-profit with a vision to take the benefits of AI to the next 5 billion
-- **Mar 2018** - Presentation at DRDO about our work on constructing domain specific knowledge bases (similar to NELL)
 - **Aug 2017** - Joined Indian Institute of Science as a research assistant at the Machine and Language Learning Lab, rejecting offers from Walmart and Microsoft Research
 - **Jan 2017** - Submitted a patent application for our work on fall detection in the elderly using computer vision techniques
 
