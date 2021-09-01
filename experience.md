@@ -4,58 +4,39 @@ title: Experience
 permalink: /experience/
 ---
 
-## [Wadhwani Institute of Artificial Intelligence]{:target="_blank"}, Research Fellow
-Advisors: [Dr. Makarand Tapaswi]{:target="_blank"}, [Dr. Rahul Panicker]{:target="_blank"}, [Dr. P. Anandan]{:target="_blank"}
+## [Fi]{:target="_blank"}, Data Science Intern
+<!-- Advisors: [Dr. Makarand Tapaswi]{:target="_blank"}, [Dr. Rahul Panicker]{:target="_blank"}, [Dr. P. Anandan]{:target="_blank"} -->
+Mentor: [Ishita Mathur]{:target="_blank"}
+- Implemented **Hierarchical Classification** as a solution to the problem of **Transaction Categorisation** by using pre-trained **BERT** embeddings as feature vectors for the transaction remarks, and a **Logit pipeline** to classify the transactions into different bins hierarchically.
+- Preprocessed, cleaned and labelled the production data by writing automating scripts.
 
-Research
-- Developed prototypes for pregnancy risk stratification using socio-economic time-series data
-- Helped build the first version of a synthetic data generation framework to generate synthetic data (via Blender) for the Anthropometry project (Estimation of weight from Video). It has since grown to be a separate system in itself.
-- Built and evaluated existing 3D reconstruction algorithms for our use case
+## [Language Technology Lab, Universität Hamburg, Germany]{:target="_blank"}, Research Intern
+Advisor - [Dr. Chris Biemann]{:target="_blank"}
+- Worked on the problem of applying **Reinforcement Learning** on **Neural Machine Translation (NMT)**
+- Built upon the work of Tsz Kin Lam et al. on [Reinforcement Learning Approach to Interactive Prediction Translation]
+- Majorly focused on using latin and non-latin language pair datasets such as **Eng-Viet** for our experiments.
+- Experimented with different reward functions such as **BLEU, YiSi, CharF** by analyzing reward scores and translation quality to figure out which would work the best under given conditions for the problem of RL on Interactive Prediction Translation.
 
-Engineering
-- Built pipelines for data validation, automated processing, annotation and preprocessing. Basically, everything post data collection till processed data ready to be used by our models.
 
-Others
-- Gave invited talks about my work at Max Planck Institute of Intelligent Systems, Tuebingen and BITS Pilani
-- Helped strategise the initial data collection effort (from a research standpoint). We have currently collected video data from 6k babies spanning 6 states in India.
-- Developed processes for coordination across Products, Programs, Engineering and Research for data collection
-- Proposed best practices for deep learning projects in the form of a guidelines document that was adopted as de-facto standard across the organisation.
-- Mentored 4 research interns spanning 2 summers and multiple other research fellows across teams.
+## [Clear]{:target="_blank"}, Software Engineering Intern
+Advisor - [Shashank Singh]{:target="_blank"}
+- Worked on the **GST (Indirect Tax System of India)** software which helps SMEs, Chartered Accountants and Enterprises to file GST returns and simplifies their filing experience
+- Built new features for the GST product using frameworks and libraries like **NextJS, GraphQL, React, Apollo (Client), Jest**
 
-Featured:
-- https://www.fastcompany.com/90626533/this-ai-powered-tech-calculates-a-babys-weight-just-from-a-video
-- https://events.technologyreview.com/video/watch/rahul-panicker-ai-social-good/
-- https://www.wadhwaniai.org/2019/04/19/competing-in-the-ibm-watson-ai-xprize/
 
-Authored blogs:
-- https://www.wadhwaniai.org/2020/10/27/ml-system-re-design/
-- https://www.wadhwaniai.org/2020/11/23/from-2d-videos-to-3d-babies/
-- https://www.wadhwaniai.org/2021/02/01/laying-pipelines/
+## Samsung, Computer Vision Intern
+Advisor - [Sevanand Singh]{:target="_blank"}
+- Optimized neural network architectures for **Single Image Super Resolution (SISR)** to upscale images from low resolution to high resolution by a factor of 2x or 4x.
+- Implemented the paper **Wide Activation for Efficient and Accurate Image Super-Resolution (WDSR)**
+- Achieved SoTA results on Div2K data. Clocked a **PSNR** of **30** on validation set using **Python and TensorFlow 2.0**
 
-## [Machine and Language Learning Lab, IISc]{:target="_blank"}, Research Assitant
-Advisor - [Dr. Partha Talukdar]{:target="_blank"}
 
-- Developed a knowledge graph (KG) based Positive Unlabeled (PU) classifier (KG-PU classifier) to create a domain specific corpus from the web given a seed set.
-- Beat OCSVM, PUSVM, SVM (treating all non class data as negative data) algorithms (as measured by F1 score) on [NYT dataset]{:target="_blank"} and real data in the scarce data regime of 50 - 500 documents.
-- Built a fully distributed crawler in the process with capacity to crawl over 100k documents in a week. Plugged the above developed classifier into the crawler to filter documents during the crawl
-
-## [Apache Software Foundation]{:target="_blank"}, Google Summer of Code '17
-Advisor - Mr. Trevor Grant
-
-- Contributed the DBSCAN algorithm to the clustering submodule in Apache Mahout
-
-## [Boomerang Commerce]{:target="_blank"}, Software Engineering Intern
-Advisor - Mr. Satish Thakur
-
-- Built an automated employee account management platform to manage all employee accounts
-- Built a dashboard to create, update, delete and manage employee accounts and respective access permissions
-- Wrote unit tests and pushed the platform to production
-
-## [Machine Vision Lab]{:target="_blank"}, Research Intern
-Advisor - Dr. Jagdish Lal Raheja
-- Developed a system to collect real time data from sensors, camera and Kinect as part of developing an activity recognition system
-- Continued the internship as a course project and developed classifier to classify activities in real time
-
+[Fi]: https://fi.money
+[Ishita Mathur]: https://imathur.com/
+[Dr. Chris Biemann]: https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/chris-biemann.html
+[Language Technology Lab, Universität Hamburg, Germany]: https://www.inf.uni-hamburg.de/en/inst/ab/lt/home.html
+[Clear]: https://cleartax.in
+[VoiceQube]: https://voiceqube.com/
 [Dr. Makarand Tapaswi]: http://www.cs.toronto.edu/~makarand/
 [Dr. Rahul Panicker]: https://en.wikipedia.org/wiki/Rahul_Panicker
 [Dr. P. Anandan]: https://en.wikipedia.org/wiki/P._Anandan
@@ -69,3 +50,7 @@ Advisor - Dr. Jagdish Lal Raheja
 [Machine Vision Lab]: http://www.ceeri.res.in/profiles/j-l-raheja/
 [$5M IBM AI XPrize]: https://www.xprize.org/articles/four-teams-enter-ai-xprize-in-last-wildcard-round
 [anthropometric measurements of neonates]: https://www.wadhwaniai.org/work/maternal-newborn-child-health/
+[Reinforcement Learning Approach to Interactive Prediction Translation]: https://arxiv.org/abs/1805.01553
+[Shashank Singh]: https://www.linkedin.com/in/shashank-singh-36a0891a/
+[Sevanand Singh]: https://www.linkedin.com/in/sevanand-singh-025b6537/
+[Wide Activation for Efficient and Accurate Image Super-Resolution (WDSR)]: https://arxiv.org/abs/1808.08718

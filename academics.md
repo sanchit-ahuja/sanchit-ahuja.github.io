@@ -6,16 +6,11 @@ permalink: /academics/
 
 ## Education
 #### Birla Institute of Technology and Science (BITS) Pilani, Pilani, Rajasthan
-Bachelor of Engineering (Hons.) in Computer Science (2013-2017)
+Bachelor of Engineering in Electrical and Electronics (2017-2021)
 
 ## Teaching Experience
-#### Teaching Assistant for Data Mining (Fall 2017, Spring 2017)
-- Co-taught an undergraduate course to over 100 students
-- Shared responsibility for labs, programming assignments, and grades
-
-#### Teaching Assistant for Principles of Programming Languages (Fall 2017)
-- Co-taught an undergraduate course to over 200 students
-- Shared responsibility for labs, programming assignments, and grades
+#### Teaching Assistant for Neural Networks and Fuzzy Logic (Spring 2021)
+- Was involved in creating and evaluating assignments in Pytorch for around 100+ students.
 
 ## Relevant Courses
 #### Mathematics
@@ -24,33 +19,16 @@ Bachelor of Engineering (Hons.) in Computer Science (2013-2017)
 - Mathematics III - Differential Equations
 - Probability & Statistics
 
-#### Discipline Electives
-- Parallel Computing
-- Data Mining
-- Number Theory
-- Image Processing
-- Artificial Intelligence
 
 #### Computer Science
 - Computer Programming
-- Discrete Structure in Computer Science
-- Logic in Computer Science
 - Object Oriented Programming
 - Digital Design
-- Database Systems
 - Microprocessors & Interfacing
-- Data Structures & Algorithms
-- Computer Architecture
-- Principles of Programming Languages
-- Theory of Computation
 - Operating Systems
-- Computer Networks
-- Design & Analysis of Algorithms
-- Compiler Construction
-
+- Data Mining
+- Information Retrieval
+- Neural Networks & Fuzzy Logic
 #### Online Courses
-- Advanced Linear Algebra
-- Statistical Machine Learning
-- Deep Learning
-
-
+- Computer Vision
+- Natural Language Processing
