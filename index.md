@@ -6,6 +6,8 @@ permalink: /
 
 {% include image.html url="images/photo.png" caption="" max_width="300px" align="left" %}
 
+### The website needs updation. Please check at the end of September 2021
+
 Hi! I'm Aditya. I'm currently a Research Fellow at the [Wadhwani Institute for Artificial Intelligence](https://wadhwaniai.org){:target="_blank"}, a independent, nonprofit research institute and global hub, developing AI solutions for social good. I am one of the founding members of the visual weighing machine team where we're developing state of the art deep learning techniques to help identify the 10 million low birth weight babies missed by the health system each year around the globe. At Wadhwani AI, with research as my core expertise, I also dabble in engineering (built our data ingestion and annotation pipelines) and as an overall lead on different substreams of our project (data, annotation, modelling)
 
 My industry experience has enabled me to acquire the following skills
