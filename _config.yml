@@ -1,11 +1,11 @@
-title: Aditya Sarma
-description: Aditya Sarma | Personal Webpage
-sourcecode: "https://github.com/AdityaAS/adityaas.github.io"
+title: Sanchit Ahuja
+description: Sanchit Ahuja | Personal Webpage
+sourcecode: "https://github.com/AdityaAS/sanchit-ahuja.github.io"
 
 permalink: blog/:year/:month/:day/:title
 exclude: ["Makefile", "README.md"]
 
-url: "https://adityaas.github.io/"     # the base hostname & protocol for your site
+url: "https://sanchit-ahuja.github.io/"     # the base hostname & protocol for your site
 baseurl:                    # the subpath of your site, e.g. /blog
 
 author:
