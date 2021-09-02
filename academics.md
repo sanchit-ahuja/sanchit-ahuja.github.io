@@ -11,6 +11,7 @@ Bachelor of Engineering in Electrical and Electronics (2017-2021)
 ## Teaching Experience
 #### Teaching Assistant for Neural Networks and Fuzzy Logic (Spring 2021)
 - Was involved in creating and evaluating assignments in Pytorch for around 100+ students.
+- Also guided a group of students towards their final course project.
 
 ## Relevant Courses
 #### Mathematics
