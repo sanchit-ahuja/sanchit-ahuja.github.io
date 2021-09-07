@@ -6,10 +6,10 @@ permalink: /
 
 {% include image.html url="images/photo-modified.png" caption="" width="300px" align="right" %}
 
-Hi! I am Sanchit. I am an incoming Machine Learning Research Engineer at [**Skit.ai**](https://Skit.ai), is an AI-first SaaS voice automation company. I recently graduated from Birla Institute of Technology and Science, Pilani, Rajasthan, India majoring in Electrical and Electronics Engineering. 
+Hi! I am Sanchit. I am a Machine Learning Research Engineer at [**Skit.ai**](https://Skit.ai), which is an AI-first SaaS voice automation company. I am part of the Core ML team. I recently graduated from Birla Institute of Technology and Science, Pilani, Rajasthan, India majoring in Electrical and Electronics Engineering. 
 
 ---
-Previously, I worked as a Data Science intern at [**Fi**](https://fi.money) where I worked on Transaction Categorisation. I was involved in creating the dataset, modelling and inferencing and finally hosting the model.
+Previously, I was a Data Science intern at [**Fi**](https://fi.money) where I worked on Transaction Categorisation. I was involved in creating the dataset, modelling and inferencing and finally hosting the model.
 <br>
 I was also a Research Intern at the [**LTI Group**](https://www.inf.uni-hamburg.de/en/inst/ab/lt/home.html) at University of Hamburg where I worked on the using Reinforcement Learning on Neural Machine Translation. 
 <br>
@@ -20,6 +20,6 @@ I have also interned with **Samsung, India** wherein I worked on the problem of 
 ---
 
 Email: sanchitahuja205 at gmail dot com <br />
-LinkedIn: [Sanchit Ahuja](https://www.linkedin.com/in/sanchitahuja/){:target="_blank"} <br />
-Github: [sanchit-ahuja](https://github.com/sanchit-ahuja/){:target="_blank"} <br />
-Twitter: [SanchitAhuja7](https://twitter.com/SanchitAhuja7){:target="_blank"}
+LinkedIn: [**Sanchit Ahuja**](https://www.linkedin.com/in/sanchitahuja/){:target="_blank"} <br />
+Github: [**sanchit-ahuja**](https://github.com/sanchit-ahuja/){:target="_blank"} <br />
+Twitter: [**SanchitAhuja7**](https://twitter.com/SanchitAhuja7){:target="_blank"}

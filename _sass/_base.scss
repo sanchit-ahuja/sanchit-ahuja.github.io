@@ -70,6 +70,7 @@ li {
 //  Headings
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
+    font-family: $heading-font-family;
 }
 
 // Links
@@ -84,7 +85,7 @@ a {
 
 // Blockquotes
 blockquote {
-    background-color: $dark-background;
+    background-color: $background;
     border-left: 4px solid darken($line-color, 66%);
     padding-left:   1.0em;
     padding-right:  0.8em;
@@ -100,7 +101,7 @@ blockquote {
 pre, code {
     border: 1px solid $line-color;
     border-radius: 3px;
-    background-color: $dark-background;
+    background-color: $background;
     font-family: monospace;
     font-size: $small-font-size;
 }

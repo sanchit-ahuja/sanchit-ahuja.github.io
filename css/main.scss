@@ -3,7 +3,8 @@
 ---
 @charset "utf-8";
 
-$base-font-family: 'EB Garamond', serif;
+$base-font-family: 'Quicksand', sans-serif; 
+$heading-font-family: 'Nanum Gothic', sans-serif;
 $base-font-size:   large;
 $small-font-size:  0.875em;
 $vsmall-font-size: 0.66em;
@@ -19,10 +20,10 @@ $blue:       #0091ed;
 $orange:     #ca6c18;
 $red:        #b6321c;
 
-$background:        $grey-vlight;
+$background:        black;
 $dark-background:   darken($background, 5%);
-$text-color:        $grey-vdark;
-$text-light-color:  $grey;
+$text-color:        white;
+$text-light-color:  $grey-vlight;
 $url-color:         $red;
 $url-hover-color:   $orange;
 $header-text-color: $text-light-color;
