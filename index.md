@@ -19,7 +19,7 @@ I have also interned with **Samsung, India** wherein I worked on the problem of 
 ## Contact
 ---
 
-Email: sanchitahuja205 at gmail dot com <br />
+Email: sanchit dot ahuja at skit dot ai <br />
 LinkedIn: [**Sanchit Ahuja**](https://www.linkedin.com/in/sanchitahuja/){:target="_blank"} <br />
 Github: [**sanchit-ahuja**](https://github.com/sanchit-ahuja/){:target="_blank"} <br />
 Twitter: [**SanchitAhuja7**](https://twitter.com/SanchitAhuja7){:target="_blank"}
