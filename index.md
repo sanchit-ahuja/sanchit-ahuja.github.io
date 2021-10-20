@@ -9,7 +9,7 @@ permalink: /
 Hi! I am Sanchit. I am a Machine Learning Research Engineer at [**Skit.ai**](https://Skit.ai), which is an AI-first SaaS voice automation company. I am part of the Core ML team. I recently graduated from Birla Institute of Technology and Science, Pilani, Rajasthan, India majoring in Electrical and Electronics Engineering. 
 
 ---
-Previously, I was a Data Science intern at [**Fi**](https://fi.money) where I worked on Transaction Categorisation. I was involved in creating the dataset, modelling and inferencing and finally hosting the model.
+Previously, I was a Data Science intern at [**Fi**](https://fi.money) where I worked on Transaction Categorisation.
 <br>
 I was also a Research Intern at the [**LTI Group**](https://www.inf.uni-hamburg.de/en/inst/ab/lt/home.html) at University of Hamburg where I worked on the using Reinforcement Learning on Neural Machine Translation. 
 <br>
