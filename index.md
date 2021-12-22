@@ -11,7 +11,7 @@ Hi! I am Sanchit. I am a Machine Learning Research Engineer at [**Skit.ai**](htt
 ---
 Previously, I was a Data Science intern at [**Fi**](https://fi.money) where I worked on Transaction Categorisation.
 <br>
-I was also a Research Intern at the [**LTI Group**](https://www.inf.uni-hamburg.de/en/inst/ab/lt/home.html) at University of Hamburg where I worked on the using Reinforcement Learning on Neural Machine Translation. 
+I was also a Research Intern at the [**LTI Group**](https://www.inf.uni-hamburg.de/en/inst/ab/lt/home.html) at University of Hamburg where I worked on using Reinforcement Learning for Neural Machine Translation. 
 <br>
 I have also interned with **Samsung, India** wherein I worked on the problem of Single Image Super Resolution. 
 <br>
