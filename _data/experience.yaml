@@ -1,0 +1,20 @@
+experiences:
+
+- place: "Microsoft Research"
+  time: "2023-Now"
+  title: "Pre-Doctoral Researcher"
+  subtitle: "Multilinguality, Evals, Data, Scaling Laws"
+  category: "work"
+
+- place: "Skit.ai"
+  time: "2021-2023"
+  title: "Machine Learning Research Engineer"
+  subtitle: "SLU, ASR, TTS"
+  category: "work"
+
+- place: "BITS Pilani"
+  time: "2017-2021"
+  title: "Bachelor of Engineering (Hons.)"
+  subtitle: "EECS"
+  category: "education"
+  # category: "work"
