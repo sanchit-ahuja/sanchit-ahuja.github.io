@@ -9,7 +9,7 @@ papers:
 
   - title: "sPhinX: Sample Efficient Multilingual Instruction Fine-Tuning Through N-shot Guided Prompting"
     authors: "<b>Sanchit Ahuja</b><sup>‡</sup>, Kumar Tanmay<sup>‡</sup>, Hardik Hansrajbhai Chauhan, Barun Patra, Kriti Aggarwal, Luciano Del Corro, Arindam Mitra, Tejas Indulal Dhamecha, Ahmed Awadallah, Monojit Choudhary, Vishrav Chaudhary, Sunayana Sitaram"
-    venue: "Preprint (Submitted to NAACL-HLT 2025)"
+    venue: "Preprint"
     paper_pdf: "https://arxiv.org/abs/2407.09879"
     selected: y
 
@@ -23,7 +23,7 @@ papers:
   
   - title: "Scaling Laws for Multilingual Language Models"
     authors: "Yifei He, Alon Benhaim, Barun Patra, Praneetha Vaddamanu, <b>Sanchit Ahuja</b>, Parul Chopra, Vishrav Chaudhary, Han Zhao, Xia Song"
-    venue: "Preprint (Submitted to ICLR 2025)"
+    venue: "Findings of the Association for Computational Linguistics ACL 2025"
     paper_pdf: "https://arxiv.org/abs/2410.12883"
     selected: y
   
