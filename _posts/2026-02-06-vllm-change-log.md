@@ -5,7 +5,9 @@ authors: "Sanchit Ahuja and Harshit Garg"
 date: 2026-02-06
 ---
 
-It has been nearly three years since the first version of ChatGPT became publicly available. In that time, both LLM research and real-world usage have expanded at an exponential pace. We now have not only humans interacting with these models but also complex agentic systems where multiple models coordinate with one another. Yet despite this rapid acceleration in demand and capability, hardware capacity remains constrained by manufacturing timelines and costs. In this post, we argue that relying on GPU memory alone is no longer a sustainable path for scaling LLM inference—and present evidence that software optimization can deliver gains comparable to hardware upgrades.
+Nearly three years after ChatGPT's public debut, the demand for LLM inference has outpaced the supply of hardware to serve it. GPU manufacturing timelines are measured in quarters; model deployment timelines are measured in days. Agentic systems now chain multiple LLM calls per user interaction, multiplying the load on already constrained accelerators. The default industry response—buy more GPUs, wait for the next chip—is expensive and slow. But there is a less examined question: how much performance is left on the table in the software stack running on the GPUs we already have?
+
+In this post, we present evidence that the answer is "roughly 2×." By benchmarking every minor release of [vLLM](https://github.com/vllm-project/vllm), a widely adopted open-source LLM inference engine, from v0.1.0 through v0.11.0 on the same model, same dataset, same single A100 GPU, we find that throughput nearly doubled purely through software evolution. We trace these gains to specific engineering decisions documented in vLLM's changelogs: memory management via PagedAttention, CUDA graph capture, `torch.compile` integration, and scheduler redesigns. We also document a notable 9% performance *regression* between v0.4.0 and v0.6.0, and use the changelogs to explain why it happened and how it was resolved.
 
 ## Investigating Software-Level Gains
 
@@ -39,40 +41,35 @@ Even with the same GPU, model, and dataset held constant across all versions, we
 </div>
 <p class="figure-caption"><b>Figure 1:</b> Performance metrics across vLLM versions 0.2.0 to 0.11.0. We skipped 0.1.0 because the changes from the first version to the second were too drastic to make for clean analysis.</p>
 
-## What Is vLLM Doing to Achieve This?
+## What is vLLM doing to achieve this?
 
-To investigate, we manually conducted a changelog study across various minor version releases of vLLM. Our analysis revealed that vLLM's 2× performance improvement stems from fundamental algorithmic innovations in memory management, scheduling, and kernel design. However, the path to realizing these gains was non-linear: performance actually regressed from v0.4.0 through v0.6.x before recovering in v0.7.0. This trajectory illustrates both the power of algorithmic innovation and the engineering challenge of delivering these improvements in production systems.
+To investigate, we manually conducted a changelog study across various minor version releases of vLLM. Our analysis revealed that vLLM's 2× performance improvement stems mostly from algorithmic changes in memory management, scheduling, and kernel design. However, the path to realizing these gains was non-linear: performance actually regressed from v0.4.0 through v0.6.x before recovering in v0.7.0. This was an interesting observation for us.
 
-### The Implementation Challenge: Why Performance Regressed
+### Why Performance Regressed
 
-Despite these algorithmic advances, performance decreased from v0.4.0 to v0.6.x. This regression reveals a critical insight: algorithmic improvements require careful system integration to deliver real-world gains. We attribute this to several iterative improvements applied in an incoherent manner.
+Between v0.4.0 and v0.6.0, throughput dropped from 10.71 req/s to 9.78 req/s, a roughly 9% regression despite continuous development effort. A close reading of the changelogs for v0.5.0 and v0.6.0 points to several contributing factors.
 
-Version 0.4.0's prefix caching illustrates this challenge. The algorithm itself is sound, reuse of shared computations is theoretically optimal. However, our ShareGPT dataset lacks the prompt repetition this algorithm targets; it mostly contains diverse user prompts without a common system prompt. The result: overhead from tracking, storing, and searching for matches without corresponding benefits.
+**CUDA graph memory pressure.** CUDA graphs were introduced in v0.5.0, and a dedicated PR ([#5074](https://github.com/vllm-project/vllm/pull/5074)) added output buffers for graph capture to reduce their memory footprint—an acknowledgment that the footprint was already a concern. On our 40 GB A100, the pre-allocated graph buffers compete directly with KV cache memory. Fewer available KV cache blocks means a smaller effective batch size, which lowers throughput. Because CUDA graphs require fixed tensor shapes, the engine must also pad variable-length batches, adding further overhead for workloads with heterogeneous sequence lengths like ShareGPT.
 
-Subsequent versions compounded this problem by adding more algorithmic improvements (speculative decoding, pipeline parallelism) that each required specific conditions to provide value.
+**Abstraction tax from new feature scaffolding.** v0.5.0 laid the groundwork for speculative decoding ([#5400](https://github.com/vllm-project/vllm/pull/5400), [#5252](https://github.com/vllm-project/vllm/pull/5252)), automatic prefix caching ([#5324](https://github.com/vllm-project/vllm/pull/5324)), multi-modal vision support ([#4197](https://github.com/vllm-project/vllm/pull/4197), [#5237](https://github.com/vllm-project/vllm/pull/5237)), and a new `CustomOp` interface for hardware portability ([#5255](https://github.com/vllm-project/vllm/pull/5255)). A new `BlockManagerV2` ([#3834](https://github.com/vllm-project/vllm/pull/3834)) was also introduced to support CPU/GPU swapping for speculative decoding. Even when these features are not explicitly enabled, they add indirection in the scheduler and model-runner hot paths—extra dispatch layers, conditional branches, and abstraction boundaries that the runtime must traverse on every forward pass.
 
-### Architectural Reset: Unleashing Algorithmic Potential
+**Partially landed `torch.compile` integration.** By v0.6.0, the codebase had begun integrating `torch.compile`, but the integration was incomplete. A PR in that release explicitly targeted "Dynamo guard evaluation overhead" ([#7898](https://github.com/vllm-project/vllm/pull/7898)), confirming that the compilation infrastructure was imposing cost without yet delivering its intended kernel-fusion benefits. Users were, in effect, paying the price of the new compiler pipeline with none of the payoff.
 
-Version 0.7.0's V1 engine didn't introduce new algorithms; instead, it created an architecture where existing algorithms could maximize their potential. We believe this is due to a few key principles:
+**Workload mismatch.** It is also worth noting that many of the optimizations in v0.5.0–v0.6.0—multi-step scheduling, asynchronous output processing, chunked prefill with prefix caching—target high-concurrency, large-scale serving scenarios. Our benchmark of ~1,000 ShareGPT prompts on a single GPU may not exercise the regime where these optimizations break even, let alone provide gains.
 
-- **Simplified integration**: Cleaner pathways for optimization techniques to interact
-- **Compiler-driven optimization**: torch.compile is enabled by default
-- **Workload-aware activation**: Support for prefix-cache aware scheduling
-- **Clean abstractions**: Better isolation between algorithmic innovations prevents interference
+**Fair warning**, these are all hypothesis which we arrived on after manually digging into the changelogs. We did not validate these changes by running targeted experiments testing each of these new features.
 
-Post-reset, the same algorithmic innovations that previously caused regression now drive the 2× performance improvement. The algorithms didn't change, their implementation did.
+### Stability Returns to vLLM
 
-### Lessons for Software-Driven Scaling
+By v0.7.0, the infrastructure investments made in v0.5.0–v0.6.0 began to pay off. Throughput jumped from 9.78 req/s to 12.30 req/s—a 26% improvement over v0.6.0 and surpassing the previous high of 10.71 req/s set by v0.4.0.
 
-This evolution demonstrates three points about algorithmic innovation in systems.
+**`torch.compile` fully landed.** The partial integration that had imposed Dynamo guard overhead in v0.6.0 was completed in v0.7.0, enabling end-to-end kernel fusion across the forward pass. Where v0.6.0 paid the cost of the compiler pipeline without the benefit, v0.7.0 delivered the intended payoff: fused GPU kernels with reduced launch overhead and optimized memory access patterns. The net effect more than compensated for the abstraction layers introduced in the preceding releases.
 
-First, algorithmic improvements provide multiplicative gains. Memory management, scheduling, and kernel optimizations compound to deliver 2× improvement without hardware changes.
+**Feature scaffolding matured into optimized code paths.** The speculative decoding, prefix caching, and multi-modal abstractions introduced in v0.5.0 had been rough-edged—functional but not yet tuned for the hot path. Over the v0.6.x cycle, these subsystems were hardened: the asynchronous output processor ([#7049](https://github.com/vllm-project/vllm/pull/7049)) that had shipped in v0.6.0 was already delivering a reported 12% throughput increase by overlapping output construction with GPU work, and FlashInfer was adopted for FP8 KV cache operations ([#7798](https://github.com/vllm-project/vllm/pull/7798)). By v0.7.0, these optimizations had stabilized enough to benefit even our single-GPU, text-only benchmark.
 
-Second, realizing algorithmic gains requires system-level thinking. The most elegant algorithm can degrade performance if poorly integrated. This helps explain why academic algorithmic improvements often fail to translate to production systems.
+**CUDA graph overhead was amortized.** The memory pressure from graph capture buffers, which had constrained effective batch size in v0.5.0, was mitigated by continued work on memory efficiency—including extended CUDA graph sizing for newer GPUs ([#7894](https://github.com/vllm-project/vllm/pull/7894)) and better buffer management. The fixed cost of graph capture was now spread across a more efficient execution pipeline, turning a net negative into a net positive.
 
-Third, software's ability to architecturally reset—impossible with hardware—enables recovery from accumulated complexity while preserving algorithmic advances. The V1 engine kept the algorithmic innovations while discarding the implementation debt.
-
-Sustainable performance scaling requires not only algorithmic research but also the systems engineering to deliver these algorithms effectively. The 2× improvement comes from algorithms; achieving it required architectural discipline.
+From v0.7.0 onward, performance plateaued in the 13.3–13.8 req/s range through v0.11.0. This stability suggests that the major architectural bets—PagedAttention, CUDA graphs, `torch.compile`, and the refactored scheduler—had reached a mature equilibrium, with subsequent releases delivering incremental refinements rather than step-function gains.
 
 ## Limitations
 
@@ -84,37 +81,45 @@ Our analysis uses a 7B parameter model from 2023 on a single A100 GPU, which may
 
 Our changelog analysis reveals concerning patterns about generalizability. Many optimizations are hardware-specific (CUDA graphs for H200, x86-specific paths), limiting portability. Others are model-specific (MoE kernels, encoder-decoder improvements), raising questions about whether these gains transfer to different architectures. This specificity suggests that achieving consistent improvements across diverse deployments requires significant engineering effort.
 
-## Implications for the Field
-
-### The Economics of Scale
-
-The cost dynamics favor software optimization over hardware scaling. The H100 costs approximately 3× more than the A100 for roughly 2× the memory, while these software optimizations achieved 2× improvement at engineering cost amortized across thousands of deployments. Additionally, software optimizations reduce power consumption without new silicon, improving both operational costs and environmental impact.
-
-### Sustainable Scaling Path
-
-The traditional approach of waiting for next-generation hardware cannot meet the exponential growth in LLM demand. A sustainable path requires treating algorithmic innovation as a first-class priority alongside silicon advancement. Organizations should consider investing in systems engineers who understand both ML and low-level optimization.
-
-## Future Work
-
-### Comprehensive Benchmarking
-
-Our analysis can be extended to modern models like Llama 3.1 70B and Mixtral to validate whether optimizations scale to larger architectures. Multi-GPU scaling efficiency across versions needs investigation to understand distributed performance. Cross-framework comparisons with TensorRT-LLM and Text Generation Inference would reveal which optimizations are fundamental versus implementation-specific.
-
-### Optimization Attribution
-
-Future work should isolate individual optimization contributions through ablation studies. Understanding which optimizations compose well or interfere would guide development priorities. Determining the theoretical limits of software optimization would help set realistic expectations for future improvements.
-
-### Predictive Modeling
-
-Developing performance models that predict the impact of optimizations before implementation could accelerate development. Identifying optimization opportunities in new model architectures would enable proactive rather than reactive optimization. Such models could guide resource allocation between hardware and software investments.
 
 ## Conclusion
 
-Our analysis of vLLM's evolution from v0.2.0 to v0.11.0 shows that software innovation alone achieved nearly 2× performance improvement—matching what typically requires a hardware generation upgrade. This supports our hypothesis that traditional compute and memory metrics are insufficient indicators for inference optimization potential.
+Over ten minor releases, vLLM nearly doubled its throughput on the same GPU, model, and dataset—from 6.82 req/s in v0.2.0 to 13.58 req/s in v0.11.0—without a single byte of additional GPU memory. The gains came from a concrete set of engineering choices: PagedAttention's memory management, CUDA graph capture for reduced kernel launch overhead, `torch.compile` for kernel fusion, and scheduler refinements for better batching. None of these required new hardware.
 
-However, the increasing complexity of optimizations, from simple caching strategies to complete engine rewrites, suggests that we may be approaching the limits of "easy" software gains. The path forward isn't choosing between hardware and software, but recognizing that sustainable AI scaling requires investment in both.
+The path was not monotonic. Between v0.4.0 and v0.6.0, performance regressed by roughly 9% as the project absorbed the cost of building infrastructure for speculative decoding, multi-modal support, and cross-hardware portability. Our changelog analysis suggests this was not accidental but structural: the abstraction layers that slowed v0.5.0–v0.6.0 were prerequisites for the `torch.compile` integration and scheduler overhaul that delivered a 26% throughput jump in v0.7.0. The regression was the cost of laying foundations; the recovery was the return on that investment.
 
-As the gap between AI capability and hardware availability widens, the question becomes whether we are exhausting algorithmic possibilities before reaching for more memory. Our evidence suggests we are not—but capturing these gains requires systematic investment in software engineering alongside model research.
+The plateau from v0.7.0 through v0.11.0 (13.3–13.8 req/s) is equally informative. It suggests that the current architectural paradigm—continuous batching with paged KV cache and compiled kernels—may be approaching its ceiling on this hardware and model class. The next step function will likely require either new algorithmic ideas (disaggregated prefill/decode, workload-aware speculative decoding) or hardware capabilities that open different optimization surfaces entirely.
+
+Our study has clear limits. A single 7B model on a single A100 cannot represent the diversity of production deployments. Whether this 2× trajectory holds for 70B+ models under tensor parallelism, for mixture-of-experts architectures, or on H100/H200 hardware with different memory budgets remains open. The regression hypotheses we derived from changelogs are plausible but unvalidated—we have not yet run the controlled experiments (e.g., `--enforce-eager` on v0.5.3, `nsys` profiling of scheduler overhead) needed to convert them into measured attributions.
+
+## Future Work
+
+### Validating the Regression Hypotheses
+
+The most immediate next step is to confirm or refute the causal claims we made about the v0.4.0–v0.6.0 regression. Specifically:
+
+- **CUDA graph memory pressure** can be isolated by re-running v0.5.3 and v0.6.0 with `--enforce-eager` (which disables CUDA graphs entirely). If throughput recovers to ~10.7 req/s, graph buffer allocation is the dominant factor. Monitoring `gpu_cache_usage_perc` across versions would further quantify how many KV cache blocks were lost to graph capture buffers.
+- **Abstraction overhead** from the `CustomOp` interface, `BlockManagerV2`, and multi-modal code paths could be measured by profiling the scheduler and model-runner hot loops with `nsys` on v0.4.0 vs. v0.6.0 and comparing kernel launch counts and CPU-side scheduling time.
+- **Partial `torch.compile` cost** can be tested by disabling compilation on v0.6.0 and comparing against the default configuration.
+
+Each of these is a single controlled experiment against a known baseline—straightforward to run and sufficient to convert our changelog-derived hypotheses into measured attributions.
+
+### Broader Model and Hardware Coverage
+
+Our study uses a single 7B model on a single A100. Two natural extensions would strengthen the conclusions:
+
+- **Larger and newer architectures.** Models like Llama 3.1 70B and Mixtral 8x7B exercise code paths (tensor parallelism, MoE routing kernels) that `stablelm-7b` does not touch. Running the same version sweep on these models would reveal whether the regression and recovery pattern we observed is universal or specific to small, dense models.
+- **Multi-GPU scaling.** vLLM introduced significant changes to its distributed executor across these versions (multiprocessing default in v0.5.0, pipeline parallel support for Intel GPUs in v0.6.0). Benchmarking on 2- and 4-GPU setups would test whether the single-GPU throughput trajectory holds or diverges under communication overhead.
+- **Newer hardware.** The v0.6.0 changelog explicitly mentions extended CUDA graph sizing for H200 ([#7894](https://github.com/vllm-project/vllm/pull/7894)). Repeating our experiments on H100 or H200 would test whether the CUDA graph memory pressure we hypothesized is specific to the 40GB memory budget of our A100.
+
+### Cross-Framework Comparison
+
+vLLM is not the only inference engine that has evolved rapidly over this period. TensorRT-LLM, Text Generation Inference (TGI), and SGLang have each made independent optimization choices. A controlled comparison—same model, same dataset, same hardware, same version timespan—would help distinguish which of vLLM's gains come from broadly applicable algorithmic ideas (e.g., PagedAttention, continuous batching) versus implementation-specific engineering (e.g., FlashInfer integration, custom CUTLASS kernels). This would also surface cases where one framework's optimization regressed performance in a way that another framework avoided entirely.
+
+### Toward Automated Changelog Analysis
+
+We performed our changelog study manually, reading release notes and mapping PRs to performance-relevant categories. This does not scale to the pace of vLLM development (~12,000 commits since v0.5.0 alone). Future work could explore semi-automated approaches: classifying PRs by subsystem (scheduler, kernel, memory manager) using commit metadata and diff analysis, then correlating subsystem-level change volume with version-over-version performance deltas. This would not replace targeted profiling, but it could prioritize which versions and which subsystems to investigate first.
+
 
 ---
 
