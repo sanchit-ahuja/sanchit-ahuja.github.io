@@ -31,7 +31,8 @@ $(document).ready(function() {
     $(document).off("scroll");
     var target = this.hash,
         menu = target;
-    $target = $(target);
+    $target = $(document.getElementById(target.substring(1)));
+    if (!$target.length) return;
     $('html, body').stop().animate({
         'scrollTop': $target.offset().top-40
     }, 0, 'swing', function () {

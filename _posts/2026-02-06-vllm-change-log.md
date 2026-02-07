@@ -5,7 +5,7 @@ authors: "Sanchit Ahuja and Harshit Garg"
 date: 2026-02-06
 ---
 
-Nearly three years after ChatGPT's public debut, the demand for LLM inference has outpaced the supply of hardware to serve it. GPU manufacturing timelines are measured in quarters; model deployment timelines are measured in days. Agentic systems now chain multiple LLM calls per user interaction, multiplying the load on already constrained accelerators. The default industry response—buy more GPUs, wait for the next chip—is expensive and slow. But there is a less examined question: how much performance is left on the table in the software stack running on the GPUs we already have?
+Nearly three years after ChatGPT's public debut, the demand for LLM inference has outpaced the supply of hardware to serve it. GPU manufacturing timelines are measured in quarters; model deployment timelines are measured in days. Agentic systems now chain multiple LLM calls per user interaction, multiplying the load on already constrained accelerators. The default industry response had been buy more GPUs, wait for the next chip which is expensive and slow. But there is a less examined question: how much performance is left on the table in the software stack running on the GPUs we already have?
 
 In this post, we present evidence that the answer is "roughly 2×." By benchmarking every minor release of [vLLM](https://github.com/vllm-project/vllm), a widely adopted open-source LLM inference engine, from v0.1.0 through v0.11.0 on the same model, same dataset, same single A100 GPU, we find that throughput nearly doubled purely through software evolution. We trace these gains to specific engineering decisions documented in vLLM's changelogs: memory management via PagedAttention, CUDA graph capture, `torch.compile` integration, and scheduler redesigns. We also document a notable 9% performance *regression* between v0.4.0 and v0.6.0, and use the changelogs to explain why it happened and how it was resolved.
 
@@ -19,7 +19,7 @@ Inspired by previous work on tracing the evolution of complex software systems, 
 
 The vLLM framework has not yet issued a major release, so we focused our study on benchmarking its minor versions from 0.1.0 through 0.11.0. Because each version maintains backward compatibility, we selected a model supported since v0.1.0: `stabilityai/stablelm-tuned-alpha-7b`. For evaluation, we used the ShareGPT dataset[^1]. All experiments were run on a single A100 40GB GPU with CUDA 12.8. We tracked five metrics in total: throughput (requests per second), the total time taken by the engine to complete inference, the average end-to-end latency per request, and the average latency per generated token and per output token.
 
-[^1]: [ShareGPT Vicuna Unfiltered](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered)
+[^1]:[ShareGPT Vicuna Unfiltered](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered)
 
 ### Results
 
@@ -61,7 +61,7 @@ Between v0.4.0 and v0.6.0, throughput dropped from 10.71 req/s to 9.78 req/s, a 
 
 ### Stability Returns to vLLM
 
-By v0.7.0, the infrastructure investments made in v0.5.0–v0.6.0 began to pay off. Throughput jumped from 9.78 req/s to 12.30 req/s—a 26% improvement over v0.6.0 and surpassing the previous high of 10.71 req/s set by v0.4.0.
+By v0.7.0, the infrastructure investments made in v0.5.0–v0.6.0 began to pay off. Throughput jumped from 9.78 req/s to 12.30 req/s, a 26% improvement over v0.6.0 and surpassing the previous high of 10.71 req/s set by v0.4.0.
 
 **`torch.compile` fully landed.** The partial integration that had imposed Dynamo guard overhead in v0.6.0 was completed in v0.7.0, enabling end-to-end kernel fusion across the forward pass. Where v0.6.0 paid the cost of the compiler pipeline without the benefit, v0.7.0 delivered the intended payoff: fused GPU kernels with reduced launch overhead and optimized memory access patterns. The net effect more than compensated for the abstraction layers introduced in the preceding releases.
 
@@ -69,7 +69,7 @@ By v0.7.0, the infrastructure investments made in v0.5.0–v0.6.0 began to pay o
 
 **CUDA graph overhead was amortized.** The memory pressure from graph capture buffers, which had constrained effective batch size in v0.5.0, was mitigated by continued work on memory efficiency—including extended CUDA graph sizing for newer GPUs ([#7894](https://github.com/vllm-project/vllm/pull/7894)) and better buffer management. The fixed cost of graph capture was now spread across a more efficient execution pipeline.
 
-From v0.7.0 onward, performance plateaued in the 13.3–13.8 req/s range through v0.11.0. This stability suggests that the major architectural bets—PagedAttention, CUDA graphs, `torch.compile`, and the refactored scheduler had reached a mature equilibrium, with subsequent releases delivering incremental refinements now.
+From v0.7.0 onward, performance plateaued in the 13.3–13.8 req/s range through v0.11.0. This stability suggests that the major architectural bets which were PagedAttention, CUDA graphs, `torch.compile`, and the refactored scheduler had reached a mature equilibrium, with subsequent releases delivering incremental refinements now.
 
 ## Limitations
 
@@ -87,9 +87,9 @@ Over ten minor releases, vLLM nearly doubled its throughput on the same GPU, mod
 
 The path was not monotonic. Between v0.4.0 and v0.6.0, performance regressed by roughly 9% as the project absorbed the cost of building infrastructure for speculative decoding, multi-modal support, and cross-hardware portability. Our changelog analysis suggests this was not accidental but structural: the abstraction layers that slowed v0.5.0–v0.6.0 were prerequisites for the `torch.compile` integration and scheduler overhaul that delivered a 26% throughput jump in v0.7.0. The regression was the cost of laying foundations; the recovery was the return on that investment.
 
-The plateau from v0.7.0 through v0.11.0 (13.3–13.8 req/s) is equally informative. It suggests that the current architectural paradigm—continuous batching with paged KV cache and compiled kernels—may be approaching its ceiling on this hardware and model class. The next step function will likely require either new algorithmic ideas (disaggregated prefill/decode, workload-aware speculative decoding) or hardware capabilities that open different optimization surfaces entirely.
+The plateau from v0.7.0 through v0.11.0 (13.3–13.8 req/s) is equally informative. It suggests that the current architectural paradigm, continuous batching with paged KV cache and compiled kernels—may be approaching its ceiling on this hardware and model class. The next big change will likely require either new algorithmic ideas (disaggregated prefill/decode, workload-aware speculative decoding) or hardware capabilities that open different optimization surfaces entirely.
 
-Our study has clear limits. A single 7B model on a single A100 cannot represent the diversity of production deployments. Whether this 2× trajectory holds for 70B+ models under tensor parallelism, for mixture-of-experts architectures, or on H100/H200 hardware with different memory budgets remains open. The regression hypotheses we derived from changelogs are plausible but unvalidated—we have not yet run the controlled experiments (e.g., `--enforce-eager` on v0.5.3, `nsys` profiling of scheduler overhead) needed to convert them into measured attributions.
+Our study has clear limits. A single 7B model on a single A100 cannot represent the diversity of production deployments. Whether this 2× trajectory holds for 70B+ models under tensor parallelism, for mixture-of-experts architectures, or on H100/H200 hardware with different memory budgets remains open. The regression hypotheses we derived from changelogs are plausible but not validated. We have not yet run the controlled experiments (e.g., `--enforce-eager` on v0.5.3, `nsys` profiling of scheduler overhead) needed to definitively prove that these were the probable reasons causing the regression.
 
 ## Future Work
 
@@ -113,7 +113,7 @@ Our study uses a single 7B model on a single A100. Two natural extensions would 
 
 ### Cross-Framework Comparison
 
-vLLM is not the only inference engine that has evolved rapidly over this period. SGLang [(Zheng et al., 2025)](https://dl.acm.org/doi/10.5555/3737916.3739916), for instance, has made different optimization choices around RadixAttention for automatic KV cache reuse and compressed finite state machines for structured generation. A controlled comparison as in with same model, same dataset, same hardware, same version timespan—would help distinguish which of vLLM's gains come from broadly applicable algorithmic ideas (e.g., PagedAttention, continuous batching) versus implementation-specific engineering (e.g., FlashInfer integration, custom CUTLASS kernels). This would also surface cases where one framework's optimization regressed performance in a way that another framework avoided entirely.
+vLLM is not the only inference engine that has evolved rapidly over this period. SGLang [(Zheng et al., 2025)](https://dl.acm.org/doi/10.5555/3737916.3739916), for instance, has made different optimization choices around RadixAttention for automatic KV cache reuse and compressed finite state machines for structured generation. A controlled comparison as in with same model, same dataset, same hardware, same version timespan, would help distinguish which of vLLM's gains come from broadly applicable algorithmic ideas (e.g., PagedAttention, continuous batching) versus implementation-specific engineering (e.g., FlashInfer integration, custom CUTLASS kernels). This would also surface cases where one framework's optimization regressed performance in a way that another framework avoided entirely.
 
 
 ---
@@ -121,7 +121,5 @@ vLLM is not the only inference engine that has evolved rapidly over this period.
 ### References
 
 1. Kwon, W., Li, Z., Zhuang, S., Sheng, Y., Zheng, L., Yu, C. H., Gonzalez, J., Zhang, H., & Stoica, I. (2023). [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://doi.org/10.1145/3600006.3613165). *SOSP '23*.
-
 2. Ren, X., Rodrigues, K., Chen, L., Vega, C., Stumm, M., & Yuan, D. (2019). [An analysis of performance evolution of Linux's core operations](https://doi.org/10.1145/3341301.3359640). *SOSP '19*.
-
 3. Zheng, L., Yin, L., Xie, Z., Sun, C., Huang, J., Yu, C. H., Cao, S., Kober, C., Leng, C., Han, S., Barrett, B., Gonzalez, J., & Stoica, I. (2025). [SGLang: Efficient Execution of Structured Language Model Programs](https://dl.acm.org/doi/10.5555/3737916.3739916). *NeurIPS '24*.
