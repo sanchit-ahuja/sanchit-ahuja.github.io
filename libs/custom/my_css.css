@@ -71,6 +71,197 @@ h4 {
   padding: 3px;
 }
 
+/*  ================ Blog styling  ================ */
+.blog-list {
+  margin-top: 20px;
+}
+.blog-entry {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.blog-date {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+.blog-title {
+  font-size: 16px;
+  text-decoration: none;
+  color: #222;
+}
+.blog-title:hover {
+  color: #33C3F0;
+}
+
+/*  ================ Post styling  ================ */
+.post-header {
+  margin-bottom: 30px;
+}
+.post-header h3 {
+  margin-bottom: 5px;
+}
+.post-meta {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.post-content {
+  line-height: 1.75;
+  font-size: 15px;
+}
+.post-content h2 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+.post-content h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+.post-content p {
+  margin-bottom: 15px;
+}
+.post-content blockquote {
+  border-left: 3px solid #33C3F0;
+  margin-left: 0;
+  padding-left: 20px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.post-content code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 90%;
+}
+.post-content pre code {
+  display: block;
+  padding: 15px;
+  overflow-x: auto;
+}
+.post-content hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 40px 0;
+}
+
+/* Figure stack for vertical charts */
+.figure-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px 0 12px 0;
+}
+.figure-stack figure {
+  margin: 0;
+  text-align: center;
+}
+.figure-stack figure img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  cursor: zoom-in;
+  transition: box-shadow 0.2s;
+}
+.figure-stack figure img:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+.figure-stack figcaption {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 8px;
+}
+.figure-caption {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 25px;
+}
+
+/* Lightbox overlay for zoom */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  cursor: zoom-out;
+  justify-content: center;
+  align-items: center;
+}
+.lightbox-overlay.active {
+  display: flex;
+}
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* KaTeX display math spacing */
+.katex-display {
+  margin: 20px 0;
+}
+
+/* Footnotes */
+.post-content .footnotes {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  padding-top: 15px;
+}
+.post-back {
+  margin-bottom: 0;
+}
+.post-back a {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+.post-back a:hover {
+  color: #33C3F0;
+}
+
+/* Citation block */
+.post-citation {
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  padding-top: 25px;
+}
+.post-citation h4 {
+  margin-bottom: 10px;
+}
+.post-citation pre {
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 15px;
+  overflow-x: auto;
+}
+.post-citation pre code {
+  font-size: 13px;
+  line-height: 1.5;
+  background: none;
+  padding: 0;
+}
+
+/* Responsive: adjust blog entries on small screens */
+@media (max-width: 549px) {
+  .blog-entry {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
 /* Larger than phone */
 @media (min-width: 550px) {
   .header {

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Blog
+---
+
+<div class="docs-section" id="blog">
+  <h4>Blog</h4>
+
+  {% if site.posts.size > 0 %}
+    <div class="blog-list">
+      {% for post in site.posts %}
+        <div class="blog-entry">
+          <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
+          <a class="blog-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No posts yet — check back soon!</p>
+  {% endif %}
+</div>

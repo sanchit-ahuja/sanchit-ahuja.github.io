@@ -3,6 +3,11 @@ destination: ./_site
 includes:    ./_includes
 # baseurl:  
 
+permalink:   /blog/:year/:title/
+
+plugins:
+  - jekyll-feed
+
 collections:
   projects:
     output: true

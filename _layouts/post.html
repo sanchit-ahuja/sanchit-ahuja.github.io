@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<div class="docs-section">
+  <p class="post-back"><a href="{{ '/blog' | prepend: site.baseurl }}">&larr; Back to blog</a></p>
+
+  <div class="post-header">
+    <h3>{{ page.title }}</h3>
+    <p class="post-meta">
+      {% if page.authors %}{{ page.authors }} · {% endif %}{{ page.date | date: "%B %d, %Y" }}
+    </p>
+  </div>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <!-- Lightbox overlay for image zoom -->
+  <div class="lightbox-overlay" id="lightbox">
+    <img id="lightbox-img" src="" alt="Zoomed image">
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+
+      // Open lightbox on zoomable image click
+      document.querySelectorAll('img.zoomable').forEach(function(img) {
+        img.addEventListener('click', function() {
+          lightboxImg.src = this.src;
+          lightboxImg.alt = this.alt;
+          lightbox.classList.add('active');
+        });
+      });
+
+      // Close lightbox on click
+      lightbox.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+      });
+    });
+  </script>
+
+  <!-- Citation -->
+  <div class="post-citation">
+    <h4>Cite this post</h4>
+    <pre><code>{% assign year = page.date | date: "%Y" %}{% assign month = page.date | date: "%b" %}@misc{ {{- page.slug -}},
+  author = { {{- page.authors | default: site.data.main_info.name -}} },
+  title  = { {{- page.title -}} },
+  year   = { {{- year -}} },
+  month  = { {{- month -}} },
+  url    = {https://sanchitahuja.com{{ page.url }}}
+}</code></pre>
+  </div>
+</div>
