@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tracing vLLM's 2× Performance Gains: A Changelog Study"
+title: "Tracing vLLM's 2× Performance Gains"
 authors: "Sanchit Ahuja and Harshit Garg"
 date: 2026-02-06
 ---
@@ -49,13 +49,13 @@ To investigate, we manually conducted a changelog study across various minor ver
 
 Between v0.4.0 and v0.6.0, throughput dropped from 10.71 req/s to 9.78 req/s, a roughly 9% regression despite continuous development effort. A close reading of the changelogs for v0.5.0 and v0.6.0 points to several contributing factors.
 
-**CUDA graph memory pressure.** CUDA graphs were introduced in v0.5.0, and a dedicated PR ([#5074](https://github.com/vllm-project/vllm/pull/5074)) added output buffers for graph capture to reduce their memory footprint—an acknowledgment that the footprint was already a concern. On our 40 GB A100, the pre-allocated graph buffers compete directly with KV cache memory. Fewer available KV cache blocks means a smaller effective batch size, which lowers throughput. Because CUDA graphs require fixed tensor shapes, the engine must also pad variable-length batches, adding further overhead for workloads with heterogeneous sequence lengths like ShareGPT.
+**CUDA graph memory pressure**: CUDA graphs were introduced in v0.5.0, and a dedicated PR ([#5074](https://github.com/vllm-project/vllm/pull/5074)) added output buffers for graph capture to reduce their memory footprint—an acknowledgment that the footprint was already a concern. On our 40 GB A100, the pre-allocated graph buffers compete directly with KV cache memory. Fewer available KV cache blocks means a smaller effective batch size, which lowers throughput. Because CUDA graphs require fixed tensor shapes, the engine must also pad variable-length batches, adding further overhead for workloads with heterogeneous sequence lengths like ShareGPT.
 
-**Abstraction tax from new feature scaffolding.** v0.5.0 laid the groundwork for speculative decoding ([#5400](https://github.com/vllm-project/vllm/pull/5400), [#5252](https://github.com/vllm-project/vllm/pull/5252)), automatic prefix caching ([#5324](https://github.com/vllm-project/vllm/pull/5324)), multi-modal vision support ([#4197](https://github.com/vllm-project/vllm/pull/4197), [#5237](https://github.com/vllm-project/vllm/pull/5237)), and a new `CustomOp` interface for hardware portability ([#5255](https://github.com/vllm-project/vllm/pull/5255)). A new `BlockManagerV2` ([#3834](https://github.com/vllm-project/vllm/pull/3834)) was also introduced to support CPU/GPU swapping for speculative decoding. Even when these features are not explicitly enabled, they add indirection in the scheduler and model-runner hot paths—extra dispatch layers, conditional branches, and abstraction boundaries that the runtime must traverse on every forward pass.
+**Abstraction tax from new feature scaffolding**: v0.5.0 laid the groundwork for speculative decoding ([#5400](https://github.com/vllm-project/vllm/pull/5400), [#5252](https://github.com/vllm-project/vllm/pull/5252)), automatic prefix caching ([#5324](https://github.com/vllm-project/vllm/pull/5324)), multi-modal vision support ([#4197](https://github.com/vllm-project/vllm/pull/4197), [#5237](https://github.com/vllm-project/vllm/pull/5237)), and a new `CustomOp` interface for hardware portability ([#5255](https://github.com/vllm-project/vllm/pull/5255)). A new `BlockManagerV2` ([#3834](https://github.com/vllm-project/vllm/pull/3834)) was also introduced to support CPU/GPU swapping for speculative decoding. Even when these features are not explicitly enabled, they add indirection in the scheduler and model-runner hot paths, extra dispatch layers, conditional branches, and abstraction boundaries that the runtime must traverse on every forward pass.
 
-**Partially landed `torch.compile` integration.** By v0.6.0, the codebase had begun integrating `torch.compile`, but the integration was incomplete. A PR in that release explicitly targeted "Dynamo guard evaluation overhead" ([#7898](https://github.com/vllm-project/vllm/pull/7898)), confirming that the compilation infrastructure was imposing cost without yet delivering its intended kernel-fusion benefits. Users were, in effect, paying the price of the new compiler pipeline with none of the payoff.
+**Partially landed `torch.compile` integration**: By v0.6.0, the codebase had begun integrating `torch.compile`, but the integration was incomplete. A PR in that release explicitly targeted "Dynamo guard evaluation overhead" ([#7898](https://github.com/vllm-project/vllm/pull/7898)), confirming that the compilation infrastructure was imposing cost without yet delivering its intended kernel-fusion benefits. Users were, in effect, paying the price of the new compiler pipeline with none of the payoff.
 
-**Workload mismatch.** It is also worth noting that many of the optimizations in v0.5.0–v0.6.0—multi-step scheduling, asynchronous output processing, chunked prefill with prefix caching—target high-concurrency, large-scale serving scenarios. Our benchmark of ~1,000 ShareGPT prompts on a single GPU may not exercise the regime where these optimizations break even, let alone provide gains.
+**Workload mismatch**: It is also worth noting that many of the optimizations in v0.5.0–v0.6.0 such as multi-step scheduling, asynchronous output processing, chunked prefill with prefix caching—target high-concurrency, large-scale serving scenarios. Our benchmark of ~1,000 ShareGPT prompts on a single GPU may not be a good proxy where these optimizations break even, let alone provide gains.
 
 **Fair warning**, these are all hypothesis which we arrived on after manually digging into the changelogs. We did not validate these changes by running targeted experiments testing each of these new features.
 
@@ -65,11 +65,11 @@ By v0.7.0, the infrastructure investments made in v0.5.0–v0.6.0 began to pay o
 
 **`torch.compile` fully landed.** The partial integration that had imposed Dynamo guard overhead in v0.6.0 was completed in v0.7.0, enabling end-to-end kernel fusion across the forward pass. Where v0.6.0 paid the cost of the compiler pipeline without the benefit, v0.7.0 delivered the intended payoff: fused GPU kernels with reduced launch overhead and optimized memory access patterns. The net effect more than compensated for the abstraction layers introduced in the preceding releases.
 
-**Feature scaffolding matured into optimized code paths.** The speculative decoding, prefix caching, and multi-modal abstractions introduced in v0.5.0 had been rough-edged—functional but not yet tuned for the hot path. Over the v0.6.x cycle, these subsystems were hardened: the asynchronous output processor ([#7049](https://github.com/vllm-project/vllm/pull/7049)) that had shipped in v0.6.0 was already delivering a reported 12% throughput increase by overlapping output construction with GPU work, and FlashInfer was adopted for FP8 KV cache operations ([#7798](https://github.com/vllm-project/vllm/pull/7798)). By v0.7.0, these optimizations had stabilized enough to benefit even our single-GPU, text-only benchmark.
+**Feature scaffolding matured into optimized code paths.** The speculative decoding, prefix caching, and multi-modal abstractions introduced in v0.5.0 had been rough-edged—functional but not yet tuned for the hot path. Over the v0.6.x cycle, these subsystems were hardened: the asynchronous output processor ([#7049](https://github.com/vllm-project/vllm/pull/7049)) that had shipped in v0.6.0, and FlashInfer was adopted for FP8 KV cache operations ([#7798](https://github.com/vllm-project/vllm/pull/7798)). By v0.7.0, these optimizations had stabilized enough to benefit even our single-GPU, text-only benchmark.
 
-**CUDA graph overhead was amortized.** The memory pressure from graph capture buffers, which had constrained effective batch size in v0.5.0, was mitigated by continued work on memory efficiency—including extended CUDA graph sizing for newer GPUs ([#7894](https://github.com/vllm-project/vllm/pull/7894)) and better buffer management. The fixed cost of graph capture was now spread across a more efficient execution pipeline, turning a net negative into a net positive.
+**CUDA graph overhead was amortized.** The memory pressure from graph capture buffers, which had constrained effective batch size in v0.5.0, was mitigated by continued work on memory efficiency—including extended CUDA graph sizing for newer GPUs ([#7894](https://github.com/vllm-project/vllm/pull/7894)) and better buffer management. The fixed cost of graph capture was now spread across a more efficient execution pipeline.
 
-From v0.7.0 onward, performance plateaued in the 13.3–13.8 req/s range through v0.11.0. This stability suggests that the major architectural bets—PagedAttention, CUDA graphs, `torch.compile`, and the refactored scheduler—had reached a mature equilibrium, with subsequent releases delivering incremental refinements rather than step-function gains.
+From v0.7.0 onward, performance plateaued in the 13.3–13.8 req/s range through v0.11.0. This stability suggests that the major architectural bets—PagedAttention, CUDA graphs, `torch.compile`, and the refactored scheduler had reached a mature equilibrium, with subsequent releases delivering incremental refinements now.
 
 ## Limitations
 
@@ -80,7 +80,6 @@ Our analysis uses a 7B parameter model from 2023 on a single A100 GPU, which may
 ### Optimization Specificity
 
 Our changelog analysis reveals concerning patterns about generalizability. Many optimizations are hardware-specific (CUDA graphs for H200, x86-specific paths), limiting portability. Others are model-specific (MoE kernels, encoder-decoder improvements), raising questions about whether these gains transfer to different architectures. This specificity suggests that achieving consistent improvements across diverse deployments requires significant engineering effort.
-
 
 ## Conclusion
 
@@ -114,11 +113,7 @@ Our study uses a single 7B model on a single A100. Two natural extensions would 
 
 ### Cross-Framework Comparison
 
-vLLM is not the only inference engine that has evolved rapidly over this period. TensorRT-LLM, Text Generation Inference (TGI), and SGLang have each made independent optimization choices. A controlled comparison—same model, same dataset, same hardware, same version timespan—would help distinguish which of vLLM's gains come from broadly applicable algorithmic ideas (e.g., PagedAttention, continuous batching) versus implementation-specific engineering (e.g., FlashInfer integration, custom CUTLASS kernels). This would also surface cases where one framework's optimization regressed performance in a way that another framework avoided entirely.
-
-### Toward Automated Changelog Analysis
-
-We performed our changelog study manually, reading release notes and mapping PRs to performance-relevant categories. This does not scale to the pace of vLLM development (~12,000 commits since v0.5.0 alone). Future work could explore semi-automated approaches: classifying PRs by subsystem (scheduler, kernel, memory manager) using commit metadata and diff analysis, then correlating subsystem-level change volume with version-over-version performance deltas. This would not replace targeted profiling, but it could prioritize which versions and which subsystems to investigate first.
+vLLM is not the only inference engine that has evolved rapidly over this period. SGLang [(Zheng et al., 2025)](https://dl.acm.org/doi/10.5555/3737916.3739916), for instance, has made different optimization choices around RadixAttention for automatic KV cache reuse and compressed finite state machines for structured generation. A controlled comparison as in with same model, same dataset, same hardware, same version timespan—would help distinguish which of vLLM's gains come from broadly applicable algorithmic ideas (e.g., PagedAttention, continuous batching) versus implementation-specific engineering (e.g., FlashInfer integration, custom CUTLASS kernels). This would also surface cases where one framework's optimization regressed performance in a way that another framework avoided entirely.
 
 
 ---
@@ -128,3 +123,5 @@ We performed our changelog study manually, reading release notes and mapping PRs
 1. Kwon, W., Li, Z., Zhuang, S., Sheng, Y., Zheng, L., Yu, C. H., Gonzalez, J., Zhang, H., & Stoica, I. (2023). [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://doi.org/10.1145/3600006.3613165). *SOSP '23*.
 
 2. Ren, X., Rodrigues, K., Chen, L., Vega, C., Stumm, M., & Yuan, D. (2019). [An analysis of performance evolution of Linux's core operations](https://doi.org/10.1145/3341301.3359640). *SOSP '19*.
+
+3. Zheng, L., Yin, L., Xie, Z., Sun, C., Huang, J., Yu, C. H., Cao, S., Kober, C., Leng, C., Han, S., Barrett, B., Gonzalez, J., & Stoica, I. (2025). [SGLang: Efficient Execution of Structured Language Model Programs](https://dl.acm.org/doi/10.5555/3737916.3739916). *NeurIPS '24*.
