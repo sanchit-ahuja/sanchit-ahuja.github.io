@@ -1,7 +1,13 @@
 experiences:
 
+- place: "Northeastern University"
+  time: "2025-Now"
+  title: "PhD Student"
+  subtitle: "Multilinguality, Pre-training, Safety"
+  category: "education"
+
 - place: "Microsoft Research"
-  time: "2023-Now"
+  time: "2023-2025"
   title: "Pre-Doctoral Researcher"
   subtitle: "Multilinguality, Evals, Data, Scaling Laws"
   category: "work"
