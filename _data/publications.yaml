@@ -37,7 +37,7 @@ papers:
   - title: "Contamination Report for Multilingual Benchmarks"
     authors: "<b>Sanchit Ahuja</b><sup>‡</sup>, Varun Gumma<sup>‡</sup>, Sunayana Sitaram"
     venue: "EvalEval Workshop at NeurIPS 2024"
-    paper_pdf: "https://google.com"
+    paper_pdf: "https://arxiv.org/abs/2410.16186"
     selected: y
 
   - title: "SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 14 Languages"
