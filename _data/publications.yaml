@@ -3,6 +3,7 @@ papers:
     authors: "<b>Sanchit Ahuja</b>, Terra Blevins"
     venue: "GenAI4World: The First Workshop on Globalizing Tasks, Evaluations, and Systems at COLM 2026 <b>(Oral Spotlight)</b>"
     paper_pdf: "https://arxiv.org/abs/2606.00284"
+    code: "https://github.com/sanchit-ahuja/scaling-multilingual-experts"
     selected: y
 
   - title: "Megaverse: Benchmarking large language models across languages, modalities, models and tasks"
@@ -14,9 +15,9 @@ papers:
     selected: y
 
   - title: "sPhinX: Sample Efficient Multilingual Instruction Fine-Tuning Through N-shot Guided Prompting"
-    authors: "<b>Sanchit Ahuja</b><sup>‡</sup>, Kumar Tanmay<sup>‡</sup>, Hardik Hansrajbhai Chauhan, Barun Patra, Kriti Aggarwal, Luciano Del Corro, Arindam Mitra, Tejas Indulal Dhamecha, Ahmed Awadallah, Monojit Choudhary, Vishrav Chaudhary, Sunayana Sitaram"
-    venue: "Preprint"
-    paper_pdf: "https://arxiv.org/abs/2407.09879"
+    authors: "<b>Sanchit Ahuja</b><sup>‡</sup>, Kumar Tanmay<sup>‡</sup>, Hardik Hansrajbhai Chauhan, Barun Patra, Kriti Aggarwal, Luciano Del Corro, Arindam Mitra, Tejas Indulal Dhamecha, Ahmed Hassan Awadallah, Monojit Choudhury, Vishrav Chaudhary, Sunayana Sitaram"
+    venue: "Proceedings of the Fourth Workshop on Generation, Evaluation and Metrics (GEM² @ ACL 2025)"
+    paper_pdf: "https://aclanthology.org/2025.gem-1.73/"
     selected: y
 
   - title: "DOSA: A Dataset of Social Artifacts from Different Indian Geographical Subcultures"
@@ -47,13 +48,13 @@ papers:
     selected: y
   
   - title: "SemEval-2024 task 1: Semantic textual relatedness for african and asian languages"
-    authors: "Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim Said Ahmad, Sanchit Ahuja, Alham Fikri Aji, Vladimir Araujo, Meriem Beloucif, Christine De Kock, Oumaima Hourrane, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Krishnapriya Vishnubhotla, Seid Muhie Yimam, Saif M Mohammad"
+    authors: "Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim Said Ahmad, <b>Sanchit Ahuja</b>, Alham Fikri Aji, Vladimir Araujo, Meriem Beloucif, Christine De Kock, Oumaima Hourrane, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Krishnapriya Vishnubhotla, Seid Muhie Yimam, Saif M Mohammad"
     venue: "Proceedings of the 18th International Workshop on Semantic Evaluation (SemEval-2024). Association for Computational Linguistics"
     paper_pdf: "https://aclanthology.org/2024.semeval-1.272/"
     selected: n
   
   - title: "Hyphen: Hyperbolic hawkes attention for text streams"
-    authors: "Shivam Agarwal, Ramit Sawhney, Sanchit Ahuja, Ritesh Soun, Sudheer Chava"
+    authors: "Shivam Agarwal, Ramit Sawhney, <b>Sanchit Ahuja</b>, Ritesh Soun, Sudheer Chava"
     venue: "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)"
     paper_pdf: "https://aclanthology.org/2022.acl-short.69.pdf"
     selected: y
