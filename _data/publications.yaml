@@ -1,4 +1,10 @@
 papers:
+  - title: "Specializing Without Forgetting: Analyzing Knowledge Preservation in Multilingual Model Adaptation"
+    authors: "<b>Sanchit Ahuja</b>, Terra Blevins"
+    venue: "GenAI4World: The First Workshop on Globalizing Tasks, Evaluations, and Systems at COLM 2026 <b>(Oral Spotlight)</b>"
+    paper_pdf: "https://arxiv.org/abs/2606.00284"
+    selected: y
+
   - title: "Megaverse: Benchmarking large language models across languages, modalities, models and tasks"
     authors: "<b>Sanchit Ahuja</b>, Divyanshu Aggarwal, Varun Gumma, Ishaan Watts, Ashutosh Sathe, Millicent Ochieng, Rishav Hada, Prachi Jain, Maxamed Axmed, Kalika Bali, Sunayana Sitaram"
     venue: "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers) (NAACL-HLT 2024)"
