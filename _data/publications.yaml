@@ -40,7 +40,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2410.16186"
     selected: y
 
-  - title: "SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 14 Languages"
+  - title: "SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 13 Languages"
     authors: "Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim Said Ahmad, <b>Sanchit Ahuja</b>, Alham Fikri Aji, Vladimir Araujo, Abinew Ali Ayele, Pavan Baswani, Meriem Beloucif, Chris Biemann, Sofia Bourhim, Christine De Kock, Genet Shanko Dekebo, Oumaima Hourrane, Gopichand Kanumolu, Lokesh Madasu, Samuel Rutunda, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Hailegnaw Getaneh Tilaye, Krishnapriya Vishnubhotla, Genta Winata, Seid Muhie Yimam, Saif M Mohammad"
     venue: "Findings of the Association for Computational Linguistics ACL 2024"
     paper_pdf: "https://aclanthology.org/2024.findings-acl.147.pdf"
